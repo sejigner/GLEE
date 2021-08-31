@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.sejigner.glee.adapter.WorkListStaggeredAdapter
 import com.sejigner.glee.fragment.FragmentShare
+import com.sejigner.glee.model.WorkModel
+import com.sejigner.glee.ui.GridItemDecoration
 import kotlinx.android.synthetic.main.fragment_share.*
 
 class RecyclerViewStaggeredGridActivity : FragmentShare() {

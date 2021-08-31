@@ -1,4 +1,4 @@
-package com.sejigner.glee;
+package com.sejigner.glee.paint;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -14,15 +14,13 @@ import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
-
 
 import java.util.ArrayList;
 
-public class PaintView extends View {
+public class PaintView_backup extends View {
 
     public static int BRUSH_SIZE = 20;
-    public static final int DEFAULT_COLOR = 0xFF00ED52;
+    public static final int DEFAULT_COLOR = 0xFF00FF0C;
     public static final int DEFAULT_BG_COLOR = Color.TRANSPARENT;
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
@@ -42,11 +40,11 @@ public class PaintView extends View {
     private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
     boolean isEraser =false;
 
-    public PaintView(Context context) {
+    public PaintView_backup(Context context) {
         this(context, null);
     }
 
-    public PaintView(Context context, AttributeSet attrs) {
+    public PaintView_backup(Context context, AttributeSet attrs) {
         super(context, attrs);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -155,16 +153,15 @@ public class PaintView extends View {
         }
     }
 
-    public void undo() {
-        // check whether the List is empty or not
-        // if empty, the remove method will return an error
-        if (paths.size() > 0) {
+    public void onClickUndo () {
+        if (paths.size()>0) {
             undonePaths.add(paths.remove(paths.size()-1));
             invalidate();
         }
-        else {
-            Toast.makeText(getContext(), "not working", Toast.LENGTH_SHORT).show();
+        else{
+            //toast the user
         }
+
     }
 
     private void touchUp() {

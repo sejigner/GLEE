@@ -1,8 +1,11 @@
-package com.sejigner.glee
+package com.sejigner.glee.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sejigner.glee.R
+import com.sejigner.glee.ui.WorkListMyPageStaggeredViewHolder
+import com.sejigner.glee.model.WorkModelMyPage
 
 class WorkListMyPageStaggeredAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var listOfWorks = listOf<WorkModelMyPage>()

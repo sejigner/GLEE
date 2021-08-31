@@ -1,4 +1,4 @@
-package com.sejigner.glee;
+package com.sejigner.glee.paint;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,6 +9,10 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.sejigner.glee.R;
+import com.sejigner.glee.paint.Stroke;
+
 import java.util.ArrayList;
 
 

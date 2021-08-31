@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sejigner.glee.*
+import com.sejigner.glee.adapter.WorkListStaggeredAdapter
+import com.sejigner.glee.model.WorkModel
+import com.sejigner.glee.ui.GridItemDecoration
 import kotlinx.android.synthetic.main.fragment_share.*
 
 open class FragmentShare : Fragment() {

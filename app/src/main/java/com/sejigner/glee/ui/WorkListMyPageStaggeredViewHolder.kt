@@ -1,10 +1,9 @@
-package com.sejigner.glee
+package com.sejigner.glee.ui
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.sejigner.glee.GlideApp
+import com.sejigner.glee.model.WorkModelMyPage
 import kotlinx.android.synthetic.main.list_item_grid_work.view.*
 import kotlinx.android.synthetic.main.list_item_grid_work_my_page.view.*
 import java.util.*

@@ -2,7 +2,6 @@ package com.sejigner.glee
 
 import android.app.Activity
 import android.graphics.Color
-import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +13,7 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sejigner.glee.Scroll.isPainting
+import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import petrov.kristiyan.colorpicker.ColorPicker

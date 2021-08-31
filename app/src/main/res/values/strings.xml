@@ -51,5 +51,6 @@
     <string name="work_detail_date">2020년 06월 02일 15:03</string>
     <string name="transcription_start">저도 필사할래요!</string>
     <string name="intro">필사를\n꼭\n종이에다가 해야 돼?</string>
+    <string name="home_start_edit_text">직접 글감 작성하기</string>
 
 </resources>

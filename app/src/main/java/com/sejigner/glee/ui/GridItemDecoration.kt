@@ -1,4 +1,4 @@
-package com.sejigner.glee
+package com.sejigner.glee.ui
 
 import android.graphics.Rect
 import android.view.View

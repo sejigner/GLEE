@@ -1,4 +1,4 @@
-package com.sejigner.glee;
+package com.sejigner.glee.paint;
 
 import android.graphics.Path;
 
