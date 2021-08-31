@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Glee">
-        <activity android:name=".WorkDetailActivity"></activity>
+        <activity android:name=".EditTextActivity"></activity>
+        <activity android:name=".WorkDetailActivity" />
         <activity
             android:name=".CanvasActivity"
             android:hardwareAccelerated="false" />

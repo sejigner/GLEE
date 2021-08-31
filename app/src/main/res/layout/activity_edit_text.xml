@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".EditTextActivity">
+
+    <ImageView
+        android:layout_marginTop="4dp"
+        android:id="@+id/iv_close_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_back"/>
+    <TextView
+        android:fontFamily="@font/noto_sans_cjk"
+        android:id="@+id/tv_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="필사하기"
+        android:background="@drawable/btn_new_transcription"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sv_fonts_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"/>
+
+
+    <HorizontalScrollView
+        android:id="@+id/sv_fonts_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_close_edit">
+
+        <RadioGroup
+            android:id="@+id/rg_fonts_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_hambaksnow_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@color/transparent"
+                android:checked="true"
+                android:fontFamily="@font/hambaksnow"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="@string/font_hambaksnow"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_mapoFlowerIsland_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@color/transparent"
+                android:fontFamily="@font/mapo_flower_island"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="@string/font_mapoFlowerIsland"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_cafe24SurroundAir_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@color/transparent"
+                android:fontFamily="@font/cafe24_surround_air"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="@string/font_cafe24SurroundAir"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rb_aritaBuri_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@color/transparent"
+                android:fontFamily="@font/arita_buri"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="@string/font_aritaBuri"
+                android:textColor="@drawable/radio_flat_text_selector"
+                android:textSize="18sp" />
+        </RadioGroup>
+    </HorizontalScrollView>
+
+    <EditText
+        android:maxLength="100"
+        android:id="@+id/et_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/seek_bar_font_size"
+        android:hint="@string/hint_edit_text"
+        android:gravity="center_horizontal"
+        android:padding="8dp"
+        android:textSize="16sp"
+        app:layout_constraintHeight_percent="0.7"/>
+
+    <TextView
+        android:textSize="16sp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/count_character"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_count_character"
+        app:layout_constraintBottom_toBottomOf="@id/et_edit"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <SeekBar
+        android:layout_marginTop="8dp"
+        android:id="@+id/seek_bar_font_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.5"
+        android:max="50"
+        android:min="1"
+        android:progress="30"
+        android:progressDrawable="@drawable/seekbar_brush_size_bar"
+        android:src="@drawable/ic_thickness_background"
+        android:thumb="@drawable/seekbar_brush_size_thumb"
+        app:layout_constraintTop_toBottomOf="@id/sv_fonts_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

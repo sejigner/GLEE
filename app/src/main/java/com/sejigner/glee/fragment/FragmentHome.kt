@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.sejigner.glee.CanvasActivity
+import com.sejigner.glee.EditTextActivity
 import com.sejigner.glee.R
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -50,7 +51,7 @@ class FragmentHome : Fragment() {
         }
 
         tvNewTranscription.setOnClickListener {
-            val intent = Intent(activity, CanvasActivity::class.java)
+            val intent = Intent(activity, EditTextActivity::class.java)
             startActivity(intent)
         }
     }
