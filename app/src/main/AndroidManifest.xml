@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sejigner.glee">
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name_kor"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Glee">
+        android:theme="@style/Theme.Glee"
+        tools:targetApi="m">
         <activity android:name=".EditTextActivity"></activity>
         <activity android:name=".WorkDetailActivity" />
         <activity

@@ -1,5 +1,6 @@
 package com.sejigner.glee
 
+import android.Manifest
 import android.app.Activity
 import android.graphics.Color
 import android.os.Build
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.sejigner.glee.fragment.FragmentHome
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         initNavigationBar()
         bnv_main.setItemIconTintList(null)
         transparentStatusAndNavigation()
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
     }
 
     private fun initNavigationBar() {

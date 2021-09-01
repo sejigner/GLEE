@@ -11,16 +11,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-import androidx.viewpager2.widget.ViewPager2
 import com.sejigner.glee.CanvasActivity
 import com.sejigner.glee.EditTextActivity
 import com.sejigner.glee.R
 import com.sejigner.glee.model.SampleWorkModel
-import com.sejigner.glee.ui.SampleWorkItem
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import kotlinx.android.synthetic.main.activity_main.*
+import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_work.view.*
 
@@ -55,28 +52,24 @@ class FragmentHome : Fragment() {
         val sample3 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
         val sample4 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
 
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        adapter.add(SampleWork(sample1))
+        adapter.add(SampleWork(sample2))
+        adapter.add(SampleWork(sample3))
+        adapter.add(SampleWork(sample4))
+        val linearLayoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
 
-        var workList: List<SampleWorkModel> = listOf(sample1, sample2, sample3, sample4)
 
-        groupAdapter = GroupAdapter<GroupieViewHolder>().apply {
-            addAll(workList.toSampleWorkITem())
-        }
 
-        groupAdapter.setOnItemClickListener { item, view ->
+        adapter.setOnItemClickListener { item, view ->
 
-            val workItem = item as SampleWorkItem
+            val workItem = item as SampleWork
 
             val intent = Intent(requireActivity(), CanvasActivity::class.java)
-            intent.putExtra(TITLE, workItem)
+            intent.putExtra(TITLE, workItem.title )
             intent.putExtra(AUTHOR, workItem.author)
             intent.putExtra(CONTENT, workItem.content)
             startActivity(intent)
-        }
-
-        rv_work_preview.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = groupAdapter
         }
 
         rv_work_preview.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
@@ -94,6 +87,9 @@ class FragmentHome : Fragment() {
 
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         })
+
+        rv_work_preview.layoutManager = linearLayoutManager
+        rv_work_preview.adapter = adapter
 
 
         rbCafe24 = view.findViewById(R.id.rb_cafe24SurroundAir)
@@ -121,11 +117,26 @@ class FragmentHome : Fragment() {
             startActivity(intent)
         }
     }
+}
 
+class SampleWork(val sampleWork: SampleWorkModel) :
+    Item<GroupieViewHolder>() {
 
-    private fun List<SampleWorkModel>.toSampleWorkITem(): List<SampleWorkItem> {
-        return this.map {
-            SampleWorkItem(it)
+    val title = sampleWork.title
+    val author = sampleWork.author
+    val content = sampleWork.content
+
+    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        viewHolder.itemView.apply {
+            tv_work_title.text = sampleWork.title
+            tv_work_author.text = sampleWork.author
+            tv_work_character_number.text = sampleWork.characterNumber.toString()+ "자"
+            tv_work_participation.text = sampleWork.participationNumber.toString() + resources.getString(R.string.participation_number)
+            tv_work_content.text =sampleWork.content
         }
+    }
+
+    override fun getLayout(): Int {
+        return R.layout.item_work
     }
 }
