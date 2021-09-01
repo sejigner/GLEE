@@ -8,27 +8,28 @@
     tools:context=".EditTextActivity">
 
     <ImageView
-        android:layout_marginTop="4dp"
         android:id="@+id/iv_close_edit"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="16dp"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:src="@drawable/ic_back"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:fontFamily="@font/noto_sans_cjk"
         android:id="@+id/tv_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="필사하기"
-        android:background="@drawable/btn_new_transcription"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/btn_new_transcription_small"
+        android:fontFamily="@font/noto_sans_cjk"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sv_fonts_edit"
+        android:text="필사하기"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <HorizontalScrollView
@@ -45,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:paddingHorizontal="24dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp">
 
             <RadioButton
                 android:id="@+id/rb_hambaksnow_edit"
@@ -113,41 +114,45 @@
     </HorizontalScrollView>
 
     <EditText
-        android:maxLength="100"
+        android:fontFamily="@font/hambaksnow"
         android:id="@+id/et_edit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/seek_bar_font_size"
-        android:hint="@string/hint_edit_text"
         android:gravity="center_horizontal"
-        android:padding="8dp"
-        android:textSize="16sp"
-        app:layout_constraintHeight_percent="0.7"/>
+        android:hint="@string/hint_edit_text"
+        android:maxLength="100"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="16dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/seek_bar_font_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:textSize="16sp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/count_character"
+        android:id="@+id/tv_count_character"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_count_character"
-        app:layout_constraintBottom_toBottomOf="@id/et_edit"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginEnd="20dp"
+        android:text="@string/count_character"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/seek_bar_font_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/seek_bar_font_size" />
 
     <SeekBar
-        android:layout_marginTop="8dp"
         android:id="@+id/seek_bar_font_size"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.5"
-        android:max="50"
-        android:min="1"
-        android:progress="30"
+        android:layout_marginTop="8dp"
+        android:max="200"
+        android:min="50"
+        android:progress="50"
         android:progressDrawable="@drawable/seekbar_brush_size_bar"
         android:src="@drawable/ic_thickness_background"
         android:thumb="@drawable/seekbar_brush_size_thumb"
-        app:layout_constraintTop_toBottomOf="@id/sv_fonts_edit"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sv_fonts_edit"
+        app:layout_constraintWidth_percent="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

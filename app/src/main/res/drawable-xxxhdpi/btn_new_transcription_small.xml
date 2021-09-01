@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:type="linear"
+                android:endColor="#464B74"
+                android:centerColor="#9486C1"
+                android:startColor="#D58FB8"
+                />
+            <corners
+                android:radius="20dp" />
+        </shape>
+    </item>
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle" >
+            <!-- fill the inside in the color you want (could also be a gradient again if you want to, just change solid to gradient and enter angle, start, maybe center, and end color) -->
+            <solid android:color="#fff" />
+            <corners
+                android:radius="20dp" />
+        </shape>
+    </item>
+</layer-list>
+
+

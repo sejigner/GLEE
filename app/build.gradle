@@ -53,6 +53,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'petrov.kristiyan:colorpicker-library:1.1.10'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "com.xwray:groupie:2.8.0"
+    implementation "com.xwray:groupie-kotlin-android-extensions:2.8.0"
 
 }
 

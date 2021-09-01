@@ -23,16 +23,6 @@
                 android:id="@+id/imageview_widget"
                 android:scaleType="center"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Canada"
-                android:id="@+id/name_widget"
-                android:layout_alignBottom="@+id/imageview_widget"
-                android:layout_alignStart="@+id/imageview_widget"
-                android:layout_marginTop="10dp"
-                android:textColor="#000"/>
-
         </RelativeLayout>
 
 
