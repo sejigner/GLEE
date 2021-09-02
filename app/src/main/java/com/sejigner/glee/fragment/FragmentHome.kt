@@ -66,12 +66,14 @@ class FragmentHome : Fragment() {
             val workItem = item as SampleWork
 
             val intent = Intent(requireActivity(), CanvasActivity::class.java)
+
             intent.putExtra(TITLE, workItem.title )
             intent.putExtra(AUTHOR, workItem.author)
             intent.putExtra(CONTENT, workItem.content)
             startActivity(intent)
         }
 
+        // 부모 뷰 터치 가로채기 방지
         rv_work_preview.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
 
             override fun onTouchEvent(view: RecyclerView, event: MotionEvent) {}

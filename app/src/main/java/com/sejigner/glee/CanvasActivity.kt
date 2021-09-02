@@ -18,6 +18,7 @@ import android.view.WindowManager
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.sejigner.glee.Scroll.isPainting
 import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
@@ -36,9 +37,10 @@ object Scroll {
 class CanvasActivity : AppCompatActivity() {
     private var mCustomView: CustomView? = null
     private var colorList = ArrayList<String>()
-    var title : String ?= null
-    var author : String ?= null
-    var content : String ?= null
+    var title: String? = null
+    var author: String? = null
+    var content: String? = null
+    var fontSize: Int? = 30
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,18 +50,19 @@ class CanvasActivity : AppCompatActivity() {
         setColorList()
         val metrics = DisplayMetrics()
         val seek = findViewById<SeekBar>(R.id.seek_bar_brush_size)
+
         initWork()
 
-        val transription = findViewById<CustomView>(R.id.customView)
-        transription.setBackgroundColor(resources.getColor(R.color.white))
 
-        tv_canvas_save.setOnClickListener {
-            val bitmap = getScreenShotFromView(transription)
+
+        tv_save_transcription.setOnClickListener {
+            mCustomView!!.setBackgroundColor(resources.getColor(R.color.white))
+            val bitmap = getScreenShotFromView(mCustomView!!)
 
             if (bitmap != null) {
-
                 saveMediaToStorage(bitmap)
             }
+            mCustomView!!.setBackgroundColor(resources.getColor(R.color.transparent))
         }
 
 
@@ -98,19 +101,19 @@ class CanvasActivity : AppCompatActivity() {
 
 
         rb_canvas_cafe24SurroundAir.setOnClickListener {
-            tv_canvas_work.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/cafe24_surround_air.ttf")
+            tv_canvas_content.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/cafe24_surround_air.ttf")
         }
 
         rb_canvas_aritaBuri.setOnClickListener {
-            tv_canvas_work.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/arita_buri.otf")
+            tv_canvas_content.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/arita_buri.otf")
         }
 
         rb_canvas_mapoFlowerIsland.setOnClickListener {
-            tv_canvas_work.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/mapo_flower_island.ttf")
+            tv_canvas_content.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/mapo_flower_island.ttf")
         }
 
         rb_canvas_hambaksnow.setOnClickListener {
-            tv_canvas_work.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/hambaksnow.ttf")
+            tv_canvas_content.typeface = Typeface.createFromAsset(applicationContext.assets, "fonts/hambaksnow.ttf")
         }
 
         view_btn_undo.setOnClickListener {
@@ -244,21 +247,33 @@ class CanvasActivity : AppCompatActivity() {
         fos?.use {
             // Finally writing the bitmap to the output stream that we opened
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
-            Toast.makeText(this , "Captured View and saved to Gallery" , Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "작품이 저장되었습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun initWork() {
-        if(intent.getStringExtra("TITLE")!=null) {
-            title = intent.getStringExtra("TITLE")
-            author = intent.getStringExtra("AUTHOR")
-            content = intent.getStringExtra("CONTENT")
 
-            tv_canvas_title.text = title
-            tv_canvas_author.text = author
-            tv_canvas_work.text = content
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val height = displayMetrics.heightPixels
+        tv_canvas_content.minHeight = height
 
+            intent.getStringExtra("CONTENT")
+        if (intent.getStringExtra("FONT_SIZE") != null) {
+            fontSize = intent.getIntExtra("FONT_SIZE", 30)
         }
+
+        title = intent.getStringExtra("TITLE")
+        author = intent.getStringExtra("AUTHOR")
+        content = intent.getStringExtra("CONTENT")
+
+
+        tv_canvas_title.text = title
+        tv_canvas_author.text = author
+        tv_canvas_content.text = content
+        tv_canvas_content.textSize = fontSize!!.toFloat()
+
+
     }
 
     private fun setColorList() {

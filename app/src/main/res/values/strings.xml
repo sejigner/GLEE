@@ -58,5 +58,6 @@
     <string name="font_size_edit">%d</string>
     <string name="participation_number">명의 사용자가 이 작품을 선택했습니다.</string>
     <string name="character_number">$d자</string>
+    <string name="title_edit_dialog">필사를 시작할까요?</string>
 
 </resources>
