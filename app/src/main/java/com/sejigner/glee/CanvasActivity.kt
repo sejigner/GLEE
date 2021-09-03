@@ -231,7 +231,7 @@ class CanvasActivity : AppCompatActivity() {
                     // putting file information in content values
                     put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
                     put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
-                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES+ File.separator + "Glee")
                     put(MediaStore.Images.Media.WIDTH, bitmap.width)
                     put(MediaStore.Images.Media.HEIGHT, bitmap.height)
                 }

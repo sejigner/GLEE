@@ -143,21 +143,25 @@ open class FragmentShare : Fragment(), GalleryImageClickListener {
     private suspend fun loadPhotosFromExternalStorage(): List<UserWork> {
         return withContext(Dispatchers.IO) {
             val collection = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            val path = "Glee"
+            val selection = MediaStore.Files.FileColumns.RELATIVE_PATH + " like ? "
+            var selectionargs = arrayOf("%" + path + "%")
 
             val projection = arrayOf(
                 MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.DISPLAY_NAME,
                 MediaStore.Images.Media.WIDTH,
-                MediaStore.Images.Media.HEIGHT
+                MediaStore.Images.Media.HEIGHT,
+                MediaStore.Images.Media.DATE_ADDED
             )
             val photos = mutableListOf<UserWork>()
 
             requireActivity().contentResolver.query(
                 collection,
                 projection,
-                null,
-                null,
-                "${MediaStore.Images.Media.DISPLAY_NAME} ASC"
+                selection, // 지정 폴더
+                selectionargs,
+                "${MediaStore.Images.Media.DISPLAY_NAME} DESC"
             )?.use { cursor ->
                 val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
                 val displayNameColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
