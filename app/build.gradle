@@ -9,6 +9,7 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    dataBinding.enabled = true
     viewBinding.enabled = true
     compileSdkVersion 30
     buildToolsVersion "30.0.3"

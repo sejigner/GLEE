@@ -1,7 +1,6 @@
 package com.sejigner.glee.adapter
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +35,7 @@ class GalleryImageAdapter(private val itemList: List<UserWork>) : RecyclerView.A
                 .load(image.contentUri)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(itemView.ivGalleryImage)
+                .into(itemView.iv_gallery_image)
             // adding click or tap handler for our image layout
             itemView.setOnClickListener {
                 listener?.onClick(adapterPosition)
