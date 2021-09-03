@@ -28,6 +28,9 @@ import petrov.kristiyan.colorpicker.ColorPicker.OnFastChooseColorListener
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 object Scroll {
@@ -211,6 +214,7 @@ class CanvasActivity : AppCompatActivity() {
     // this method saves the image to gallery
     private fun saveMediaToStorage(bitmap: Bitmap) {
         // Generating a file name
+
         val filename = "${System.currentTimeMillis()}.jpg"
 
         // Output stream
@@ -228,6 +232,8 @@ class CanvasActivity : AppCompatActivity() {
                     put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
                     put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
                     put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+                    put(MediaStore.Images.Media.WIDTH, bitmap.width)
+                    put(MediaStore.Images.Media.HEIGHT, bitmap.height)
                 }
 
                 // Inserting the contentValues to
@@ -249,6 +255,12 @@ class CanvasActivity : AppCompatActivity() {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
             Toast.makeText(this, "작품이 저장되었습니다.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setDateToTextView(timestamp: Long): String {
+        val sdf = SimpleDateFormat("yyyy.MM.dd a hh:mm")
+        sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
+        return sdf.format(timestamp * 1000L)
     }
 
     private fun initWork() {

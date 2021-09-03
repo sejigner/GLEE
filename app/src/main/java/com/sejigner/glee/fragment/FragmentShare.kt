@@ -1,88 +1,131 @@
 package com.sejigner.glee.fragment
 
+import android.content.ContentUris
+import android.graphics.BitmapFactory
+import android.media.MediaActionSound
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.database.ContentObserver
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.sejigner.glee.*
-import com.sejigner.glee.adapter.WorkListStaggeredAdapter
-import com.sejigner.glee.model.WorkModel
-import com.sejigner.glee.ui.GridItemDecoration
+import com.sejigner.glee.adapter.GalleryImageAdapter
+import com.sejigner.glee.adapter.GalleryImageClickListener
+import com.sejigner.glee.model.UserWork
 import kotlinx.android.synthetic.main.fragment_share.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-open class FragmentShare : Fragment() {
+
+open class FragmentShare : Fragment(), GalleryImageClickListener {
+    // gallery column count
+    private val SPAN_COUNT = 3
+    lateinit var galleryAdapter: GalleryImageAdapter
+    private val IMAGE_LOADER_ID = 1
+    private var imageList = ArrayList<UserWork>()
+    private lateinit var contentObserver: ContentObserver
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View? {
+
         return inflater.inflate(R.layout.fragment_share, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        // init adapter
+        galleryAdapter = GalleryImageAdapter(imageList)
+        galleryAdapter.listener = this
+        // init recyclerview
+        recyclerView.layoutManager = GridLayoutManager(requireActivity(), SPAN_COUNT)
+        recyclerView.adapter = galleryAdapter
+        initContentObserver()
+        // load images
+        loadPhotosFromExternalStorageIntoRecyclerView()
+
     }
 
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        initView()
-        setImageSample()
+    override fun onClick(position: Int) {
+        // handle click of image
+        val bundle = Bundle()
+        bundle.putSerializable("images", imageList)
+        bundle.putInt("position", position)
+        val fragmentTransaction = childFragmentManager.beginTransaction()
+        val galleryFragment = GalleryFullscreenFragment()
+        galleryFragment.arguments = bundle
+        galleryFragment.show(fragmentTransaction, "gallery")
     }
 
-    private fun setImageSample() {
-        GlideApp.with(this).load(R.drawable.work_exam).into(iv_work_exam_1)
-        GlideApp.with(this).load(R.drawable.work_exam2).into(iv_work_exam_2)
-        GlideApp.with(this).load(R.drawable.sample_user_1).circleCrop().into(iv_sample_user_picture_1)
-        GlideApp.with(this).load(R.drawable.sample_user_2).circleCrop().into(iv_sample_user_picture_2)
-    }
+    private fun loadPhotosFromExternalStorageIntoRecyclerView() {
+        lifecycleScope.launch {
 
-    private fun initView() {
-/*
-        rv_work.layoutManager = StaggeredGridLayoutManager(2, 1).apply {
-            gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
-            orientation = StaggeredGridLayoutManager.VERTICAL
+            val photos = loadPhotosFromExternalStorage()
+            imageList = photos as ArrayList<UserWork>
         }
-        rv_work.setHasFixedSize(false)
-*/
-        //This will for default android divider
-        rv_work.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        rv_work.addItemDecoration(GridItemDecoration(10, 2))
-        rv_work.layoutManager
-        val workListAdapter = WorkListStaggeredAdapter()
-        rv_work.adapter = workListAdapter
-        workListAdapter.setWorkList(generateDummyData())
     }
 
-    private fun generateDummyData(): List<WorkModel> {
-        val listOfWork = mutableListOf<WorkModel>()
+    private suspend fun loadPhotosFromExternalStorage(): List<UserWork> {
+        return withContext(Dispatchers.IO) {
+            val collection = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 
-        var workModel = WorkModel("지멘", 128, R.drawable.exam_1, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
+            val projection = arrayOf(
+                MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.WIDTH,
+                MediaStore.Images.Media.HEIGHT
+            )
+            val photos = mutableListOf<UserWork>()
 
-        workModel = WorkModel("보석", 11, R.drawable.exam_2, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
+            requireActivity().contentResolver.query(
+                collection,
+                projection,
+                null,
+                null,
+                "${MediaStore.Images.Media.DISPLAY_NAME} ASC"
+            )?.use { cursor ->
+                val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
+                val displayNameColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
+                val widthColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.WIDTH)
+                val heightColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.HEIGHT)
 
-        workModel = WorkModel("배준수", 29, R.drawable.exam_3, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
-
-        workModel = WorkModel("흰둥", 98, R.drawable.exam_4, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
-
-        workModel = WorkModel("여의도", 30, R.drawable.exam_5, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
-
-        workModel = WorkModel("혜승", 56, R.drawable.current_work_sample_my_page2, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
-        workModel = WorkModel("성북", 7, R.drawable.work_sample_my_page2, R.drawable.ic_my_page_selected)
-        listOfWork.add(workModel)
-
-
-
-        return listOfWork
+                while (cursor.moveToNext()) {
+                    val id = cursor.getLong(idColumn)
+                    val displayName = cursor.getString(displayNameColumn)
+                    val width = cursor.getInt(widthColumn)
+                    val height = cursor.getInt(heightColumn)
+                    val contentUri = ContentUris.withAppendedId(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        id
+                    )
+                    photos.add(UserWork(id, displayName, contentUri))
+                }
+                photos.toList()
+            } ?: listOf()
+        }
     }
 
+    private fun initContentObserver() {
+        contentObserver = object : ContentObserver(null) {
+            override fun onChange(selfChange: Boolean) {
+                loadPhotosFromExternalStorageIntoRecyclerView()
+            }
+        }
+        requireActivity().contentResolver.registerContentObserver(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            true,
+            contentObserver
+        )
+    }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        requireActivity().contentResolver.unregisterContentObserver(contentObserver)
+    }
 }

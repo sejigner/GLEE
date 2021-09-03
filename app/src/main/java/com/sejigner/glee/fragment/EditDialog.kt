@@ -45,6 +45,7 @@ class EditDialog: DialogFragment() {
             intent.putExtra("CONTENT",content)
             intent.putExtra("FONT_SIZE",fontSize)
             startActivity(intent)
+            dismiss()
         }
 
         btn_no_edit_dialog.setOnClickListener {

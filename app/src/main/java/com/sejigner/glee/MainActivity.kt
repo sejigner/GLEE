@@ -15,6 +15,7 @@ import com.sejigner.glee.fragment.FragmentHome
 import com.sejigner.glee.fragment.FragmentMyPage
 import com.sejigner.glee.fragment.FragmentShare
 import com.sejigner.glee.fragment.MainViewPagerAdapter
+import com.sejigner.glee.model.UserWork
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -113,4 +114,6 @@ class MainActivity : AppCompatActivity() {
 
         window.attributes = winParams
     }
+
+
 }
