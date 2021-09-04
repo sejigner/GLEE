@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         initViewPager()
         initNavigationBar()
         bnv_main.setItemIconTintList(null)
-        transparentStatusAndNavigation()
+        // transparentStatusAndNavigation()
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
     }

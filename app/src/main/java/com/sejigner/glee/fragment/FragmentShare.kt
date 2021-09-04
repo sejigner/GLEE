@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.database.ContentObserver
 import android.os.Build
 import android.os.Environment
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -35,12 +36,9 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.jar.Manifest
 
+const val GLEE = "Glee"
 
-open class FragmentShare : Fragment(), GalleryImageClickListener {
-    // gallery column count
-    private val SPAN_COUNT = 3
-    lateinit var galleryAdapter: GalleryImageAdapter
-    private val IMAGE_LOADER_ID = 1
+class FragmentShare : Fragment(), GalleryImageClickListener {
     private var imageList = ArrayList<UserWork>()
     private lateinit var contentObserver: ContentObserver
     private lateinit var binding: FragmentShareBinding
@@ -94,7 +92,7 @@ open class FragmentShare : Fragment(), GalleryImageClickListener {
 
     private fun setUpExternalStorageRecyclerView() = binding.recyclerView.apply {
         adapter = externalStoragePhotoAdapter
-        layoutManager = StaggeredGridLayoutManager(3, RecyclerView.VERTICAL)
+        layoutManager = StaggeredGridLayoutManager(5, RecyclerView.VERTICAL)
     }
 
     private fun updateOrRequestPermissions() {
@@ -137,10 +135,82 @@ open class FragmentShare : Fragment(), GalleryImageClickListener {
     private fun loadPhotosFromExternalStorageIntoRecyclerView() {
         lifecycleScope.launch {
 
-            val photos = loadPhotosFromExternalStorage()
+            val photos = getData()
             externalStoragePhotoAdapter.submitList(photos)
         }
     }
+
+    private suspend fun getData(): List<UserWork>? =
+
+        withContext(Dispatchers.IO) {
+            try {
+
+                val collection = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
+                } else MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+
+                val selection =
+                    MediaStore.Images.ImageColumns.RELATIVE_PATH + " like ? "
+                val projection = arrayOf(
+                    MediaStore.Images.Media._ID,
+                    MediaStore.Images.Media.DISPLAY_NAME,
+                    MediaStore.Images.Media.RELATIVE_PATH,
+                    MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+                    MediaStore.Images.Media.BUCKET_ID,
+                    MediaStore.MediaColumns.WIDTH
+                )
+
+                val selectionArgs = arrayOf("%$GLEE%")
+
+                val sortOrder = MediaStore.MediaColumns.DATE_ADDED + " COLLATE NOCASE DESC"
+
+                val itemList: MutableList<UserWork> = mutableListOf()
+
+                context?.contentResolver?.query(
+                    collection,
+                    projection,
+                    selection,
+                    selectionArgs,
+                    sortOrder
+                )?.use { cursor ->
+
+                    val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
+                    val displayNameColumn =
+                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
+                    val relativePathColumn =
+                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.RELATIVE_PATH)
+                    val widthPathColumn =
+                        cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.WIDTH)
+
+
+                    while (cursor.moveToNext()) {
+                        val id = cursor.getLong(idColumn)
+                        val displayName = cursor.getString(displayNameColumn)
+                        val relativePath = cursor.getString(relativePathColumn)
+                        val width = cursor.getInt(widthPathColumn)
+
+
+                        val contentUri = ContentUris.withAppendedId(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            id
+                        )
+
+                        itemList.add(UserWork(id, displayName, contentUri))
+
+                    }
+                    cursor.close()
+                }
+
+                itemList
+            } catch (e: Exception) {
+                Log.d(
+                    "MediaStoreException", "The exception for getData is " +
+                            "$e"
+                )
+                null
+            }
+
+        }
 
     private suspend fun loadPhotosFromExternalStorage(): List<UserWork> {
         return withContext(Dispatchers.IO) {
