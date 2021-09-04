@@ -8,7 +8,7 @@
         android:icon="@drawable/bottom_selector_home"
         android:title="home"/>
     <item
-        android:id="@+id/chat"
+        android:id="@+id/share"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/bottom_selector_share"

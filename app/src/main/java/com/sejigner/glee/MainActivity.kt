@@ -15,7 +15,6 @@ import com.sejigner.glee.fragment.FragmentHome
 import com.sejigner.glee.fragment.FragmentMyPage
 import com.sejigner.glee.fragment.FragmentShare
 import com.sejigner.glee.fragment.MainViewPagerAdapter
-import com.sejigner.glee.model.UserWork
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             setOnNavigationItemSelectedListener {
                 val page = when(it.itemId) {
                     R.id.home -> 0
-                    R.id.chat -> 1
+                    R.id.share -> 1
                     R.id.my_page -> 2
                     else -> 0
                 }
@@ -66,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onPageSelected(position: Int) {
                     val navigation = when(position) {
                         0 -> R.id.home
-                        1 -> R.id.chat
+                        1 -> R.id.share
                         2 -> R.id.my_page
                         else -> R.id.home
                     }
@@ -114,6 +113,5 @@ class MainActivity : AppCompatActivity() {
 
         window.attributes = winParams
     }
-
 
 }

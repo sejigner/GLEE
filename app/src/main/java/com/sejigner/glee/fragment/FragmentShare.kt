@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.database.ContentObserver
 import android.os.Build
+import android.os.Environment
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -31,6 +32,7 @@ import kotlinx.android.synthetic.main.fragment_share.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 import java.util.jar.Manifest
 
 
@@ -143,36 +145,30 @@ open class FragmentShare : Fragment(), GalleryImageClickListener {
     private suspend fun loadPhotosFromExternalStorage(): List<UserWork> {
         return withContext(Dispatchers.IO) {
             val collection = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            val path = "Glee"
-            val selection = MediaStore.Files.FileColumns.RELATIVE_PATH + " like ? "
-            var selectionargs = arrayOf("%" + path + "%")
+            val path = "Pictures/TestApp%"
+            val selection = "${MediaStore.MediaColumns.RELATIVE_PATH} LIKE ?"
+            val selectionargs = arrayOf(path)
 
             val projection = arrayOf(
                 MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.WIDTH,
-                MediaStore.Images.Media.HEIGHT,
-                MediaStore.Images.Media.DATE_ADDED
+                MediaStore.Images.Media.DISPLAY_NAME
             )
             val photos = mutableListOf<UserWork>()
 
             requireActivity().contentResolver.query(
                 collection,
                 projection,
-                selection, // 지정 폴더
+                selection,
                 selectionargs,
                 "${MediaStore.Images.Media.DISPLAY_NAME} DESC"
             )?.use { cursor ->
                 val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
                 val displayNameColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
-                val widthColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.WIDTH)
-                val heightColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.HEIGHT)
+
 
                 while (cursor.moveToNext()) {
                     val id = cursor.getLong(idColumn)
                     val displayName = cursor.getString(displayNameColumn)
-                    val width = cursor.getInt(widthColumn)
-                    val height = cursor.getInt(heightColumn)
                     val contentUri = ContentUris.withAppendedId(
                         MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                         id

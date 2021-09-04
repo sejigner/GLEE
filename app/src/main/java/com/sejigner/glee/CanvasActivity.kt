@@ -2,6 +2,7 @@ package com.sejigner.glee
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -19,10 +20,12 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.lifecycleScope
 import com.sejigner.glee.Scroll.isPainting
 import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.launch
 import petrov.kristiyan.colorpicker.ColorPicker
 import petrov.kristiyan.colorpicker.ColorPicker.OnFastChooseColorListener
 import java.io.File
@@ -63,7 +66,11 @@ class CanvasActivity : AppCompatActivity() {
             val bitmap = getScreenShotFromView(mCustomView!!)
 
             if (bitmap != null) {
-                saveMediaToStorage(bitmap)
+                lifecycleScope.launch {
+                    saveMediaToStorage(bitmap)
+                }
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
             mCustomView!!.setBackgroundColor(resources.getColor(R.color.transparent))
         }
@@ -212,7 +219,7 @@ class CanvasActivity : AppCompatActivity() {
     }
 
     // this method saves the image to gallery
-    private fun saveMediaToStorage(bitmap: Bitmap) {
+    private suspend fun saveMediaToStorage(bitmap: Bitmap) {
         // Generating a file name
 
         val filename = "${System.currentTimeMillis()}.jpg"
@@ -245,7 +252,7 @@ class CanvasActivity : AppCompatActivity() {
             }
         } else {
             // These for devices running on android < Q
-            val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+            val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+ File.separator + "Glee")
             val image = File(imagesDir, filename)
             fos = FileOutputStream(image)
         }
