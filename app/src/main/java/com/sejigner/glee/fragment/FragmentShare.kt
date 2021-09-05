@@ -35,7 +35,7 @@ class FragmentShare : Fragment() {
     private lateinit var externalStoragePhotoAdapter: SharedWorkAdapter
     private var readPermissionGranted = false
     private var writePermissionGranted = false
-    private lateinit var permissonLauncher: ActivityResultLauncher<Array<String>>
+    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View {
@@ -65,7 +65,7 @@ class FragmentShare : Fragment() {
 //        // load images
 //        loadPhotosFromExternalStorageIntoRecyclerView()
 
-        permissonLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             permissions -> readPermissionGranted = permissions[android.Manifest.permission.READ_EXTERNAL_STORAGE]?: readPermissionGranted
 
             if(readPermissionGranted) {
@@ -110,7 +110,7 @@ class FragmentShare : Fragment() {
             permissionsToRequest.add(android.Manifest.permission.READ_EXTERNAL_STORAGE)
         }
         if(permissionsToRequest.isNotEmpty()) {
-            permissonLauncher.launch(permissionsToRequest.toTypedArray())
+            permissionLauncher.launch(permissionsToRequest.toTypedArray())
         }
     }
 
