@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_home.xml" value="0.1793478260869565" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_share.xml" value="0.1598731884057971" />
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/image_fullscreen.xml" value="0.25364583333333335" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/item_photo.xml" value="0.1598731884057971" />
       </map>
     </option>

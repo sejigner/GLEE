@@ -2,8 +2,6 @@ package com.sejigner.glee.fragment
 
 import android.content.ContentUris
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
-import android.media.MediaActionSound
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -11,42 +9,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.database.ContentObserver
 import android.os.Build
-import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.sejigner.glee.*
-import com.sejigner.glee.adapter.GalleryImageAdapter
-import com.sejigner.glee.adapter.GalleryImageClickListener
 import com.sejigner.glee.adapter.SharedWorkAdapter
 import com.sejigner.glee.databinding.FragmentShareBinding
 import com.sejigner.glee.model.UserWork
-import kotlinx.android.synthetic.main.fragment_share.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.File
-import java.util.jar.Manifest
 
 const val GLEE = "Glee"
 
-class FragmentShare : Fragment(), GalleryImageClickListener {
-    private var imageList = ArrayList<UserWork>()
+class FragmentShare : Fragment() {
+
+    private lateinit var imageList : ArrayList<UserWork>
     private lateinit var contentObserver: ContentObserver
     private lateinit var binding: FragmentShareBinding
     private lateinit var externalStoragePhotoAdapter: SharedWorkAdapter
     private var readPermissionGranted = false
     private var writePermissionGranted = false
     private lateinit var permissonLauncher: ActivityResultLauncher<Array<String>>
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
             : View? {
@@ -59,14 +48,13 @@ class FragmentShare : Fragment(), GalleryImageClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        externalStoragePhotoAdapter = SharedWorkAdapter {
-            lifecycleScope.launch {
-
-            }
-        }
+        imageList = arrayListOf()
+        externalStoragePhotoAdapter = SharedWorkAdapter()
         setUpExternalStorageRecyclerView()
         initContentObserver()
         loadPhotosFromExternalStorageIntoRecyclerView()
+
+        
 
 //        // init adapter
 //        galleryAdapter = GalleryImageAdapter(imageList)
@@ -93,6 +81,11 @@ class FragmentShare : Fragment(), GalleryImageClickListener {
     private fun setUpExternalStorageRecyclerView() = binding.recyclerView.apply {
         adapter = externalStoragePhotoAdapter
         layoutManager = StaggeredGridLayoutManager(5, RecyclerView.VERTICAL)
+
+        externalStoragePhotoAdapter.onItemClick = { position ->
+            onClick(position)
+
+        }
     }
 
     private fun updateOrRequestPermissions() {
@@ -121,7 +114,7 @@ class FragmentShare : Fragment(), GalleryImageClickListener {
         }
     }
 
-    override fun onClick(position: Int) {
+    private fun onClick(position : Int) {
         // handle click of image
         val bundle = Bundle()
         bundle.putSerializable("images", imageList)
@@ -132,10 +125,16 @@ class FragmentShare : Fragment(), GalleryImageClickListener {
         galleryFragment.show(fragmentTransaction, "gallery")
     }
 
+
+
     private fun loadPhotosFromExternalStorageIntoRecyclerView() {
         lifecycleScope.launch {
 
             val photos = getData()
+            if(!photos.isNullOrEmpty()) {
+                imageList.clear()
+                imageList.addAll(photos)
+            }
             externalStoragePhotoAdapter.submitList(photos)
         }
     }
@@ -267,4 +266,5 @@ class FragmentShare : Fragment(), GalleryImageClickListener {
         super.onDestroy()
         requireActivity().contentResolver.unregisterContentObserver(contentObserver)
     }
+
 }

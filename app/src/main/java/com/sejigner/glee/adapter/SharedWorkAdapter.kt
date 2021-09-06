@@ -8,12 +8,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sejigner.glee.databinding.ItemPhotoBinding
 import com.sejigner.glee.model.UserWork
+import javax.inject.Inject
 
-class SharedWorkAdapter(
-    private val onPhotoClick: (UserWork) -> Unit
-) : ListAdapter<UserWork, SharedWorkAdapter.WorkViewHolder>(Companion) {
+class SharedWorkAdapter @Inject constructor() : ListAdapter<UserWork, SharedWorkAdapter.WorkViewHolder>(Companion) {
+    var onItemClick : ((Int)-> Unit)? = null
+    var userWorks : List<UserWork> = emptyList()
 
-    inner class WorkViewHolder(val binding : ItemPhotoBinding): RecyclerView.ViewHolder(binding.root)
+    inner class WorkViewHolder(val binding : ItemPhotoBinding): RecyclerView.ViewHolder(binding.root) {
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(adapterPosition)
+            }
+        }
+    }
 
     companion object : DiffUtil.ItemCallback<UserWork>() {
         override fun areItemsTheSame(oldItem: UserWork, newItem: UserWork): Boolean {
@@ -42,11 +49,6 @@ class SharedWorkAdapter(
             ConstraintSet().apply {
                 clone(root)
                 applyTo(root)
-            }
-
-            ivPhoto.setOnClickListener {
-                onPhotoClick(photo)
-                true
             }
         }
     }

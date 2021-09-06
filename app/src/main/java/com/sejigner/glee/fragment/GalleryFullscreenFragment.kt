@@ -71,7 +71,6 @@ class GalleryFullscreenFragment : DialogFragment() {
             // load image
             GlideApp.with(context!!)
                 .load(image.contentUri)
-                .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(view.ivFullscreenImage)
             container.addView(view)

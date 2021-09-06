@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.item_gallery_image.view.*
 
 class GalleryImageAdapter(private val itemList: List<UserWork>) : RecyclerView.Adapter<GalleryImageAdapter.ViewHolder>() {
     private var context: Context? = null
-    var listener: GalleryImageClickListener? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryImageAdapter.ViewHolder {
         context = parent.context
         val view = LayoutInflater.from(parent.context).inflate(
@@ -37,9 +36,10 @@ class GalleryImageAdapter(private val itemList: List<UserWork>) : RecyclerView.A
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(itemView.iv_gallery_image)
             // adding click or tap handler for our image layout
-            itemView.setOnClickListener {
-                listener?.onClick(adapterPosition)
-            }
+
         }
     }
+
+
+
 }
