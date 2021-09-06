@@ -38,7 +38,7 @@ class FragmentShare : Fragment() {
     private lateinit var permissonLauncher: ActivityResultLauncher<Array<String>>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
-            : View? {
+            : View {
 
         binding = FragmentShareBinding.inflate(inflater, container, false)
 
@@ -176,17 +176,17 @@ class FragmentShare : Fragment() {
                     val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
                     val displayNameColumn =
                         cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME)
-                    val relativePathColumn =
-                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.RELATIVE_PATH)
-                    val widthPathColumn =
-                        cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.WIDTH)
+//                    val relativePathColumn =
+//                        cursor.getColumnIndexOrThrow(MediaStore.Images.Media.RELATIVE_PATH)
+//                    val widthPathColumn =
+//                        cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.WIDTH)
 
 
                     while (cursor.moveToNext()) {
                         val id = cursor.getLong(idColumn)
                         val displayName = cursor.getString(displayNameColumn)
-                        val relativePath = cursor.getString(relativePathColumn)
-                        val width = cursor.getInt(widthPathColumn)
+//                        val relativePath = cursor.getString(relativePathColumn)
+//                        val width = cursor.getInt(widthPathColumn)
 
 
                         val contentUri = ContentUris.withAppendedId(

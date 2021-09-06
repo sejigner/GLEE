@@ -47,6 +47,7 @@ class CanvasActivity : AppCompatActivity() {
     var author: String? = null
     var content: String? = null
     var fontSize: Int? = 30
+    var fileName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -222,7 +223,13 @@ class CanvasActivity : AppCompatActivity() {
     private suspend fun saveMediaToStorage(bitmap: Bitmap) {
         // Generating a file name
 
-        val filename = "${System.currentTimeMillis()}.jpg"
+        val filename : String = if (fileName!=null) {
+            fileName!!+".jpg"
+        } else {
+            "${setDateToTextView(System.currentTimeMillis())}.jpg"
+        }
+
+
 
         // Output stream
         var fos: OutputStream? = null
