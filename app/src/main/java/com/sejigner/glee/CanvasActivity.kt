@@ -257,7 +257,9 @@ class CanvasActivity : AppCompatActivity() {
         val filename : String = if (fileName!=null) {
             fileName!!+".jpg"
         } else {
-            "${setDateToTextView(System.currentTimeMillis())}.jpg"
+            val timestamp = System.currentTimeMillis()
+            val date = setDateToTextView(timestamp)
+            "${date}.jpg"
         }
 
 
@@ -302,10 +304,10 @@ class CanvasActivity : AppCompatActivity() {
         }
     }
 
-    private fun setDateToTextView(timestamp: Long): String {
+    private fun setDateToTextView(time: Long): String {
         val sdf = SimpleDateFormat("yyyy.MM.dd a hh:mm")
         sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
-        return sdf.format(timestamp * 1000L)
+        return sdf.format(time)
     }
 
     private fun initWork() {
