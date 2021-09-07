@@ -175,7 +175,7 @@
                 android:paddingVertical="24dp"
                 android:paddingHorizontal="16dp"
                 android:textColor="#DDDDDD"
-                android:textSize="70sp"
+                android:textSize="140sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -318,14 +318,13 @@
                     android:min="1"
                     android:progress="20"
                     android:progressDrawable="@drawable/seekbar_brush_size_bar"
-                    android:src="@drawable/ic_thickness_background"
                     android:thumb="@drawable/seekbar_brush_size_thumb"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintStart_toEndOf="@id/dp"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_font_size"
+                    android:id="@+id/tv_guide_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -336,31 +335,30 @@
                     card_view:layout_constraintStart_toEndOf="@+id/view_btn_bg_color" />
 
                 <TextView
-                    android:id="@+id/tv_progress_seek_bar_font"
-                    android:layout_width="20dp"
+                    android:id="@+id/tv_progress_seek_bar_guide"
+                    android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="20"
                     android:textColor="#646464"
                     android:textSize="16dp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintEnd_toStartOf="@+id/seek_bar_font_size"
-                    card_view:layout_constraintStart_toEndOf="@id/tv_font_size"
+                    card_view:layout_constraintEnd_toStartOf="@+id/seek_bar_guide_size"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_guide_size"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
 
                 <SeekBar
-                    android:id="@+id/seek_bar_font_size"
-                    android:layout_width="120dp"
+                    android:id="@+id/seek_bar_guide_size"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:max="40"
-                    android:min="1"
-                    android:progress="20"
+                    android:max="120"
+                    android:progress="0"
                     android:progressDrawable="@drawable/seekbar_brush_size_bar"
                     android:src="@drawable/ic_thickness_background"
                     android:thumb="@drawable/seekbar_brush_size_thumb"
                     card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintStart_toEndOf="@id/tv_progress_seek_bar_font"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_progress_seek_bar_guide"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView

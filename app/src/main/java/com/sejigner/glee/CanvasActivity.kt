@@ -58,8 +58,10 @@ class CanvasActivity : AppCompatActivity() {
         backgroundColor = resources.getColor(R.color.white)
         setBackgroundColor(backgroundColor!!)
         val metrics = DisplayMetrics()
-        val seek = findViewById<SeekBar>(R.id.seek_bar_brush_size)
+        val seekPenThickness = findViewById<SeekBar>(R.id.seek_bar_brush_size)
+        val seekGuideSize = findViewById<SeekBar>(R.id.seek_bar_guide_size)
         initWork()
+
 
         tv_save_transcription.setOnClickListener {
             mCustomView!!.setBackgroundColor(backgroundColor!!)
@@ -196,7 +198,7 @@ class CanvasActivity : AppCompatActivity() {
 
 
 
-        seek?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        seekPenThickness?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             var progressChanged = 0
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 progressChanged = progress
@@ -204,8 +206,8 @@ class CanvasActivity : AppCompatActivity() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seek.progress))
-                progressChanged = seek.progress
+                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seekPenThickness.progress))
+                progressChanged = seekPenThickness.progress
 
             }
 
@@ -215,7 +217,7 @@ class CanvasActivity : AppCompatActivity() {
                 "획 두께가 " + seek.progress + "포인트에요.",
                 Toast.LENGTH_SHORT).show()
                 */
-                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seek.progress))
+                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seekPenThickness.progress))
                 Log.d("Debug", "brush : $progressChanged pt")
                 mCustomView!!.setBrushSize(progressChanged.toFloat())
                 mCustomView!!.setLastBrushSize(progressChanged.toFloat())
@@ -223,6 +225,33 @@ class CanvasActivity : AppCompatActivity() {
 
             }
         })
+
+        seekGuideSize?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            var progressChanged = 0
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                progressChanged = progress + 20
+                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, progress))
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, seekGuideSize.progress + 20))
+                progressChanged = seekGuideSize.progress + 20
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                /*
+                Toast.makeText(this@CanvasActivity,
+                "획 두께가 " + seek.progress + "포인트에요.",
+                Toast.LENGTH_SHORT).show()
+                */
+                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, seekGuideSize.progress + 20))
+                Log.d("Debug", "guide : $progressChanged pt")
+                tv_canvas_content.textSize = progressChanged.toFloat() + 20
+            }
+        })
+
+
     }
 
     private fun setBackgroundColor(color : Int) {
@@ -317,7 +346,12 @@ class CanvasActivity : AppCompatActivity() {
         val height = displayMetrics.heightPixels
         tv_canvas_content.minHeight = height
 
-            intent.getStringExtra("CONTENT")
+            if(intent.getStringExtra("CONTENT").isNullOrEmpty()) {
+                content = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                tv_progress_seek_bar_guide.visibility = View.GONE
+                seek_bar_guide_size.visibility = View.GONE
+                tv_guide_size.visibility = View.GONE
+            }
         if (intent.getStringExtra("FONT_SIZE") != null) {
             fontSize = intent.getIntExtra("FONT_SIZE", 30)
         }

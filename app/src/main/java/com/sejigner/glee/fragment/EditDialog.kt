@@ -35,14 +35,14 @@ class EditDialog: DialogFragment() {
 
         if(content=="") {
             tv_notice_edit_dialog.text = "작성된 글이 없습니다. 빈 화면으로 시작할까요?"
-            content = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            content = ""
         } else {
             tv_notice_edit_dialog.text = content
         }
 
         btn_yes_edit_dialog.setOnClickListener {
             val intent = Intent(requireActivity(),CanvasActivity::class.java)
-            intent.putExtra("CONTENT",content)
+            intent.putExtra("CONTENT",content + "\n\n\n")
             intent.putExtra("FONT_SIZE",fontSize)
             startActivity(intent)
             dismiss()

@@ -9,7 +9,8 @@
     <!-- 시크바 프로그래스 -->
     <item android:id="@android:id/progress" >
         <clip>
-            <shape>
+            <shape android:shape="line">
+                <stroke android:width="4dp" android:color="@color/buttonSelected"/>
                 <corners android:radius="5dp"/>
                 <gradient
                     android:endColor="#464B74"

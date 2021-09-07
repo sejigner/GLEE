@@ -5,11 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.View
 import android.widget.SeekBar
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.sejigner.glee.fragment.EditDialog
 import kotlinx.android.synthetic.main.activity_edit_text.*
 
@@ -23,7 +19,7 @@ class EditTextActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_text)
 
-        val seek = findViewById<SeekBar>(R.id.seek_bar_font_size)
+        val seek = findViewById<SeekBar>(R.id.seek_bar_guide_size)
 
         iv_close_edit.setOnClickListener {
             super.onBackPressed()
