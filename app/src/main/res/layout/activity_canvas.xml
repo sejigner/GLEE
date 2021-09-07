@@ -72,7 +72,7 @@
 
     <HorizontalScrollView
         android:id="@+id/sv_fonts"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#4099A2D3"
         app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
             android:paddingHorizontal="16dp"
             app:cardCornerRadius="8dp"
             card_view:cardBackgroundColor="#4099A2D3"
-            card_view:cardElevation="10dp">
+            card_view:cardElevation="16dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -216,46 +216,76 @@
                 android:layout_marginHorizontal="16dp">
 
                 <TextView
-                    android:id="@+id/tv_color"
+                    android:id="@+id/tv_pen_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="색상"
+                    android:text="펜 색상"
                     android:textSize="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     card_view:layout_constraintBottom_toBottomOf="parent" />
 
                 <ImageView
-                    android:id="@+id/btn_color_change"
+                    android:id="@+id/btn_pen_color_change"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginStart="4dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/btn_color_change_new"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_color"
-                    app:layout_constraintTop_toTopOf="@id/tv_color"
-                    card_view:layout_constraintStart_toEndOf="@id/tv_color" />
+                    app:layout_constraintBottom_toBottomOf="@id/tv_pen_color"
+                    app:layout_constraintTop_toTopOf="@id/tv_pen_color"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_pen_color" />
 
                 <View
-                    android:id="@+id/view_btn_color"
+                    android:id="@+id/view_btn_pen_color"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintEnd_toStartOf="@id/tv_thickness"
-                    card_view:layout_constraintStart_toStartOf="@id/tv_color"
+                    card_view:layout_constraintEnd_toEndOf="@id/btn_pen_color_change"
+                    card_view:layout_constraintStart_toStartOf="@id/tv_pen_color"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_thickness"
+                    android:id="@+id/tv_bg_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="배경 색상"
+                    android:textSize="16dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@id/seek_bar_brush_size"
+                    app:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btn_bg_color_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/btn_bg_color_change"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_pen_color"
+                    app:layout_constraintTop_toTopOf="@id/tv_pen_color"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_bg_color" />
+
+                <View
+                    android:id="@+id/view_btn_bg_color"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="@id/btn_bg_color_change"
+                    card_view:layout_constraintStart_toStartOf="@id/tv_bg_color"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_pen_thickness"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="두께"
+                    android:text="펜 두께"
                     android:textSize="16dp"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    card_view:layout_constraintStart_toEndOf="@+id/btn_color_change" />
+                    card_view:layout_constraintStart_toEndOf="@+id/view_btn_pen_color" />
 
                 <TextView
                     android:id="@+id/tv_progress_seek_bar"
@@ -267,7 +297,7 @@
                     android:textSize="16dp"
                     card_view:layout_constraintBottom_toBottomOf="parent"
                     card_view:layout_constraintEnd_toStartOf="@+id/dp"
-                    card_view:layout_constraintStart_toEndOf="@id/tv_thickness"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_pen_thickness"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -281,7 +311,7 @@
 
                 <SeekBar
                     android:id="@+id/seek_bar_brush_size"
-                    android:layout_width="110dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:max="40"
                     android:min="1"
@@ -290,8 +320,46 @@
                     android:src="@drawable/ic_thickness_background"
                     android:thumb="@drawable/seekbar_brush_size_thumb"
                     card_view:layout_constraintBottom_toBottomOf="parent"
-                    card_view:layout_constraintEnd_toStartOf="@id/view_btn_undo"
                     card_view:layout_constraintStart_toEndOf="@id/dp"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_font_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="가이드 크기"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintStart_toEndOf="@+id/view_btn_bg_color" />
+
+                <TextView
+                    android:id="@+id/tv_progress_seek_bar_font"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="20"
+                    android:textColor="#646464"
+                    android:textSize="16dp"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toStartOf="@+id/seek_bar_font_size"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_font_size"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+
+                <SeekBar
+                    android:id="@+id/seek_bar_font_size"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:max="40"
+                    android:min="1"
+                    android:progress="20"
+                    android:progressDrawable="@drawable/seekbar_brush_size_bar"
+                    android:src="@drawable/ic_thickness_background"
+                    android:thumb="@drawable/seekbar_brush_size_thumb"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintStart_toEndOf="@id/tv_progress_seek_bar_font"
                     card_view:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView

@@ -19,7 +19,6 @@ import android.view.WindowManager
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import com.sejigner.glee.Scroll.isPainting
 import com.sejigner.glee.paint.CustomView
@@ -145,7 +144,7 @@ class CanvasActivity : AppCompatActivity() {
         }
         btn_redo.setOnClickListener { mCustomView!!.onClickRedo() }
 
-        btn_color_change.setOnClickListener {
+        btn_pen_color_change.setOnClickListener {
             val colorPicker = ColorPicker(this@CanvasActivity)
             colorPicker.setOnFastChooseColorListener(object : OnFastChooseColorListener {
                 override fun setOnFastChooseColorListener(position: Int, color: Int) {
@@ -153,7 +152,7 @@ class CanvasActivity : AppCompatActivity() {
                     // selected from the dialog box and
                     // set it as the stroke color
                     customView.setColor(color)
-                    btn_color_change.setColorFilter(color)
+                    btn_pen_color_change.setColorFilter(color)
                 }
 
                 override fun onCancel() {
@@ -168,7 +167,9 @@ class CanvasActivity : AppCompatActivity() {
                 .setTitle("필사에 이용할 잉크 색을 골라주세요!")
                 .show()
         }
-        view_btn_color.setOnClickListener { btn_color_change.performClick() }
+        view_btn_pen_color.setOnClickListener { btn_pen_color_change.performClick() }
+
+        
 
         seek?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             var progressChanged = 0
