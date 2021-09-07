@@ -41,6 +41,7 @@ object Scroll {
 
 class CanvasActivity : AppCompatActivity() {
     private var mCustomView: CustomView? = null
+    private var backgroundColor : Int ?= null
     private var colorList = ArrayList<String>()
     var title: String? = null
     var author: String? = null
@@ -54,15 +55,14 @@ class CanvasActivity : AppCompatActivity() {
         transparentStatusAndNavigation()
         mCustomView = findViewById<View>(R.id.customView) as CustomView
         setColorList()
+        backgroundColor = resources.getColor(R.color.white)
+        setBackgroundColor(backgroundColor!!)
         val metrics = DisplayMetrics()
         val seek = findViewById<SeekBar>(R.id.seek_bar_brush_size)
-
         initWork()
 
-
-
         tv_save_transcription.setOnClickListener {
-            mCustomView!!.setBackgroundColor(resources.getColor(R.color.white))
+            mCustomView!!.setBackgroundColor(backgroundColor!!)
             val bitmap = getScreenShotFromView(mCustomView!!)
 
             if (bitmap != null) {
@@ -164,12 +164,37 @@ class CanvasActivity : AppCompatActivity() {
                 // in the dialog
                 .setColors(colorList)
                 .setRoundColorButton(true)
-                .setTitle("필사에 이용할 잉크 색을 골라주세요!")
+                .setTitle("필사에 이용할 잉크 색을 선택해주세요!")
                 .show()
         }
         view_btn_pen_color.setOnClickListener { btn_pen_color_change.performClick() }
 
-        
+        btn_bg_color_change.setOnClickListener {
+            val colorPicker = ColorPicker(this@CanvasActivity)
+            colorPicker.setOnFastChooseColorListener(object : OnFastChooseColorListener {
+                override fun setOnFastChooseColorListener(position: Int, color: Int) {
+                    // get the integer value of color
+                    // selected from the dialog box and
+                    // set it as the stroke color
+                    setBackgroundColor(color)
+                    btn_bg_color_change.setColorFilter(color)
+                }
+
+                override fun onCancel() {
+                    colorPicker.dismissDialog()
+                }
+            }) // set the number of color columns
+                // you want  to show in dialog.
+                .setColumns(4) // set a default color selected
+                // in the dialog
+                .setColors(colorList)
+                .setRoundColorButton(true)
+                .setTitle("필사에 이용할 바탕 색을 선택해주세요!")
+                .show()
+        }
+        view_btn_bg_color.setOnClickListener { btn_bg_color_change.performClick() }
+
+
 
         seek?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             var progressChanged = 0
@@ -198,6 +223,11 @@ class CanvasActivity : AppCompatActivity() {
 
             }
         })
+    }
+
+    private fun setBackgroundColor(color : Int) {
+        constraint_layout_background.setBackgroundColor(color)
+        backgroundColor = color
     }
 
     private fun getScreenShotFromView(v: View): Bitmap? {

@@ -159,6 +159,7 @@
         app:layout_constraintTop_toBottomOf="@id/cv_tool_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
