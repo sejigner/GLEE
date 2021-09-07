@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.sejigner.glee.Scroll.isPainting
+import com.sejigner.glee.fragment.SaveDialog
 import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -39,7 +40,7 @@ object Scroll {
     var isPainting: Boolean = true
 }
 
-class CanvasActivity : AppCompatActivity() {
+class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
     private var mCustomView: CustomView? = null
     private var backgroundColor : Int ?= null
     private var colorList = ArrayList<String>()
@@ -64,17 +65,8 @@ class CanvasActivity : AppCompatActivity() {
 
 
         tv_save_transcription.setOnClickListener {
-            mCustomView!!.setBackgroundColor(backgroundColor!!)
-            val bitmap = getScreenShotFromView(mCustomView!!)
-
-            if (bitmap != null) {
-                lifecycleScope.launch {
-                    saveMediaToStorage(bitmap)
-                }
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
-            mCustomView!!.setBackgroundColor(resources.getColor(R.color.transparent))
+            val saveDialog = SaveDialog()
+            saveDialog.show(supportFragmentManager,"SaveDialog")
         }
 
 
@@ -279,6 +271,20 @@ class CanvasActivity : AppCompatActivity() {
         return screenshot
     }
 
+    override fun save() {
+        mCustomView!!.setBackgroundColor(backgroundColor!!)
+        val bitmap = getScreenShotFromView(mCustomView!!)
+
+        if (bitmap != null) {
+            lifecycleScope.launch {
+                saveMediaToStorage(bitmap)
+            }
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        mCustomView!!.setBackgroundColor(resources.getColor(R.color.transparent))
+    }
+
     // this method saves the image to gallery
     private suspend fun saveMediaToStorage(bitmap: Bitmap) {
         // Generating a file name
@@ -334,7 +340,7 @@ class CanvasActivity : AppCompatActivity() {
     }
 
     private fun setDateToTextView(time: Long): String {
-        val sdf = SimpleDateFormat("yyyy.MM.dd a hh:mm")
+        val sdf = SimpleDateFormat("yyyy.MM.dd a hh시 mm분")
         sdf.timeZone = TimeZone.getTimeZone("Asia/Seoul")
         return sdf.format(time)
     }
@@ -346,14 +352,14 @@ class CanvasActivity : AppCompatActivity() {
         val height = displayMetrics.heightPixels
         tv_canvas_content.minHeight = height
 
-            if(intent.getStringExtra("CONTENT").isNullOrEmpty()) {
+
+            if(!intent.getBooleanExtra("HAS_WRITTEN", true)) {
                 content = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-                tv_progress_seek_bar_guide.visibility = View.GONE
-                seek_bar_guide_size.visibility = View.GONE
-                tv_guide_size.visibility = View.GONE
+                hideGuideTools()
             }
         if (intent.getStringExtra("FONT_SIZE") != null) {
-            fontSize = intent.getIntExtra("FONT_SIZE", 30)
+            fontSize = intent.getIntExtra("FONT_SIZE", 40)
+            tv_canvas_content.textSize = fontSize!!.toFloat()
         }
 
         title = intent.getStringExtra("TITLE")
@@ -367,6 +373,12 @@ class CanvasActivity : AppCompatActivity() {
         tv_canvas_content.textSize = fontSize!!.toFloat()
 
 
+    }
+
+    private fun hideGuideTools() {
+        tv_progress_seek_bar_guide.visibility = View.GONE
+        seek_bar_guide_size.visibility = View.GONE
+        tv_guide_size.visibility = View.GONE
     }
 
     private fun setColorList() {

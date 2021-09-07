@@ -52,12 +52,14 @@
     <string name="transcription_start">저도 필사할래요!</string>
     <string name="intro">필사를\n꼭\n종이에다가 해야 돼?</string>
     <string name="home_start_edit_text">직접 글감 작성하기</string>
-    <string name="hint_edit_text">필사하고 싶은 글을 직접 작성해주세요 :)</string>
+    <string name="hint_edit_text">필사하고 싶은 글을 작성해주세요 :)</string>
     <string name="glee">글과 글씨를 이롭게 하다, 글리</string>
     <string name="count_character">0 / 100</string>
     <string name="font_size_edit">%d</string>
     <string name="participation_number">명의 사용자가 이 작품을 선택했습니다.</string>
     <string name="character_number">$d자</string>
     <string name="title_edit_dialog">필사를 시작할까요?</string>
+    <string name="title_save_dialog">작품을 저장할까요?</string>
+    <string name="notice_save_dialog">저장한 후에 둘러보기 탭에서 다른 작품도 감상해보세요 :)</string>
 
 </resources>
