@@ -376,6 +376,7 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
     }
 
     private fun hideGuideTools() {
+        sv_fonts_canvas.visibility = View.GONE
         tv_progress_seek_bar_guide.visibility = View.GONE
         seek_bar_guide_size.visibility = View.GONE
         tv_guide_size.visibility = View.GONE
