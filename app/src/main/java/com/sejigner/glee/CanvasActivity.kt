@@ -364,7 +364,7 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
 
         title = intent.getStringExtra("TITLE")
         author = intent.getStringExtra("AUTHOR")
-        content = intent.getStringExtra("CONTENT")
+        content = intent.getStringExtra("CONTENT") + "\n\n\n"
 
 
         tv_canvas_title.text = title

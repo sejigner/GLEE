@@ -47,7 +47,7 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sample1 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
+        val sample1 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, resources.getString(R.string.work_sample_content_1).length,resources.getString(R.string.work_sample_content_1))
         val sample2 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
         val sample3 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
         val sample4 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
