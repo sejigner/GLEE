@@ -9,7 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.sejigner.glee.GlideApp
 import com.sejigner.glee.R
 import com.sejigner.glee.helper.ZoomOutPageTransformer
@@ -71,6 +74,9 @@ class GalleryFullscreenFragment : DialogFragment() {
             // load image
             GlideApp.with(context!!)
                 .load(image.contentUri)
+                .apply(RequestOptions())
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .override(Target.SIZE_ORIGINAL)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(view.ivFullscreenImage)
             container.addView(view)
