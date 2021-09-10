@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.SeekBar
 import com.sejigner.glee.fragment.EditDialog
+import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.activity_edit_text.*
 
 class EditTextActivity : AppCompatActivity() {
@@ -76,7 +77,6 @@ class EditTextActivity : AppCompatActivity() {
         })
 
     }
-
     private fun setFontOnClickListener() {
         rb_cafe24SurroundAir_edit.setOnClickListener {
             replaceFont(CAFE24_SURROUND_AIR)
@@ -110,6 +110,5 @@ class EditTextActivity : AppCompatActivity() {
     private fun replaceFont(font: String) {
         et_edit.typeface = Typeface.createFromAsset(this.assets, font)
     }
-
 
 }

@@ -23,10 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/btn_new_transcription_small"
+        android:background="@drawable/btn_new_transcription_new"
         android:fontFamily="@font/noto_sans_cjk"
+        android:gravity="center"
         android:paddingHorizontal="8dp"
         android:text="필사하기"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
