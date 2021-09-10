@@ -12,6 +12,6 @@
     <color name="transparent">#00000000</color>
     <color name="buttonSelected">#464B74</color>
     <color name="grayText">#707070</color>
-    <color name="btn_cancel">#5E5E5E</color>
+    <color name="btn_cancel">#DDDDDD</color>
     <color name="btn_yes">#444EAF</color>
 </resources>

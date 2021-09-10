@@ -23,10 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/btn_new_transcription_small"
+        android:background="@drawable/btn_new_transcription_new"
         android:fontFamily="@font/noto_sans_cjk"
+        android:gravity="center"
         android:paddingHorizontal="8dp"
         android:text="필사하기"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,10 +39,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:paddingBottom="8dp"
         android:clipToPadding="false"
+        android:paddingBottom="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_close_edit">
+        app:layout_constraintTop_toBottomOf="@id/tv_start">
 
         <RadioGroup
             android:id="@+id/rg_fonts_edit"
@@ -61,15 +63,14 @@
                 android:checked="true"
                 android:fontFamily="@font/hambaksnow"
                 android:gravity="center"
+                android:includeFontPadding="false"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
-                android:includeFontPadding="false"
                 android:text="@string/font_hambaksnow"
                 android:textColor="@drawable/radio_flat_text_selector"
                 android:textSize="18sp" />
 
             <RadioButton
-                android:includeFontPadding="false"
                 android:id="@+id/rb_mapoFlowerIsland_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -78,6 +79,7 @@
                 android:button="@color/transparent"
                 android:fontFamily="@font/mapo_flower_island"
                 android:gravity="center"
+                android:includeFontPadding="false"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
                 android:text="@string/font_mapoFlowerIsland"
@@ -85,7 +87,6 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:includeFontPadding="false"
                 android:id="@+id/rb_cafe24SurroundAir_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -94,6 +95,7 @@
                 android:button="@color/transparent"
                 android:fontFamily="@font/cafe24_surround_air"
                 android:gravity="center"
+                android:includeFontPadding="false"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
                 android:text="@string/font_cafe24SurroundAir"
@@ -101,7 +103,6 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:includeFontPadding="false"
                 android:id="@+id/rb_aritaBuri_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -110,6 +111,7 @@
                 android:button="@color/transparent"
                 android:fontFamily="@font/arita_buri"
                 android:gravity="center"
+                android:includeFontPadding="false"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="5dp"
                 android:text="@string/font_aritaBuri"
@@ -119,19 +121,19 @@
     </HorizontalScrollView>
 
     <EditText
-        android:fontFamily="@font/hambaksnow"
         android:id="@+id/et_edit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fontFamily="@font/hambaksnow"
         android:gravity="center_horizontal"
         android:hint="@string/hint_edit_text"
         android:maxLength="100"
+        android:paddingHorizontal="16dp"
         android:paddingTop="24dp"
         android:paddingBottom="16dp"
-        android:paddingHorizontal="16dp"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/seek_bar_guide_size"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seek_bar_guide_size"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
