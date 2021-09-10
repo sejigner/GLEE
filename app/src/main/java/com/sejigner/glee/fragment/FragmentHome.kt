@@ -19,6 +19,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.item_work.*
 import kotlinx.android.synthetic.main.item_work.view.*
 
 
@@ -90,10 +91,6 @@ class FragmentHome : Fragment() {
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         })
 
-        rv_work_preview.layoutManager = linearLayoutManager
-        rv_work_preview.adapter = adapter
-
-
         rbCafe24 = view.findViewById(R.id.rb_cafe24SurroundAir)
         rbAritaBuri = view.findViewById(R.id.rb_aritaBuri)
         rbMapoFlowerIsland = view.findViewById(R.id.rb_mapoFlowerIsland)
@@ -113,6 +110,9 @@ class FragmentHome : Fragment() {
         rbHambakSnow.setOnClickListener {
             rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
         }
+
+        rv_work_preview.layoutManager = linearLayoutManager
+        rv_work_preview.adapter = adapter
 
         tvNewTranscription.setOnClickListener {
             val intent = Intent(activity, EditTextActivity::class.java)
