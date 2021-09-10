@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_edit_text.*
 class EditTextActivity : AppCompatActivity() {
 
     var fontSize: Int? = 30
-    var font: String? = "fonts/hambaksnow.ttf"
     var text: String? = ""
 
     companion object {
@@ -43,40 +42,6 @@ class EditTextActivity : AppCompatActivity() {
         }
 
         setFontOnClickListener()
-
-
-
-
-        rb_cafe24SurroundAir_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.CAFE24_SURROUND_AIR)
-        }
-
-        rb_aritaBuri_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.ARITA_BURI)
-        }
-
-        rb_mapoFlowerIsland_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.MAPO_FLOWER)
-        }
-
-        rb_hambaksnow_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.HAMBAK_SNOW)
-        }
-        rb_cafe24_shining_star_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.CAFE24_SHINING_STAR)
-        }
-        rb_nanum_barun_pen_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.NANUM_BARUN_PEN)
-        }
-        rb_nanum_pen_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.NANUM_PEN)
-        }
-        rb_middle_school_student_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.MIDDLE_SCHOOL_STUDENT)
-        }
-        rb_bm_euljiro_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.BM_EUJIRO)
-        }
 
         seek?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             var progressChanged = 0

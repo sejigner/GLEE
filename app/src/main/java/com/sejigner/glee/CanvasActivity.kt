@@ -24,6 +24,8 @@ import com.sejigner.glee.Scroll.isPainting
 import com.sejigner.glee.fragment.SaveDialog
 import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
+import kotlinx.android.synthetic.main.activity_canvas.seek_bar_guide_size
+import kotlinx.android.synthetic.main.activity_edit_text.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.launch
 import petrov.kristiyan.colorpicker.ColorPicker
