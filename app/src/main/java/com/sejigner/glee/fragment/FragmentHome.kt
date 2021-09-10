@@ -114,6 +114,9 @@ class FragmentHome : Fragment() {
             rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
         }
 
+        rv_work_preview.layoutManager = linearLayoutManager
+        rv_work_preview.adapter = adapter
+
         tvNewTranscription.setOnClickListener {
             val intent = Intent(activity, EditTextActivity::class.java)
             startActivity(intent)

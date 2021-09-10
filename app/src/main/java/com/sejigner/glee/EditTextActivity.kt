@@ -7,6 +7,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.SeekBar
 import com.sejigner.glee.fragment.EditDialog
+import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.activity_edit_text.*
 
 class EditTextActivity : AppCompatActivity() {
@@ -14,6 +15,18 @@ class EditTextActivity : AppCompatActivity() {
     var fontSize: Int? = 30
     var font: String? = "fonts/hambaksnow.ttf"
     var text: String? = ""
+
+    companion object {
+        const val CAFE24_SURROUND_AIR = "fonts/cafe24_surround_air.ttf"
+        const val ARITA_BURI = "fonts/arita_buri.otf"
+        const val MAPO_FLOWER = "fonts/mapo_flower_island.ttf"
+        const val HAMBAK_SNOW = "fonts/hambaksnow.ttf"
+        const val CAFE24_SHINING_STAR = "fonts/cafe24_shining_star.ttf"
+        const val MIDDLE_SCHOOL_STUDENT = "fonts/middle_school_student.ttf"
+        const val NANUM_BARUN_PEN = "fonts/nanum_barun_pen.ttf"
+        const val NANUM_PEN = "fonts/nanum_pen.ttf"
+        const val BM_EUJIRO = "fonts/bm_euljiro.ttf"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,25 +42,40 @@ class EditTextActivity : AppCompatActivity() {
             EditDialog.newInstance(text!!,fontSize!!).show(this@EditTextActivity.supportFragmentManager, EditDialog.TAG)
         }
 
+        setFontOnClickListener()
 
 
 
-        rb_cafe24SurroundAir_edit.setOnClickListener {
-            font = "fonts/cafe24_surround_air.ttf"
-            et_edit.typeface = Typeface.createFromAsset(this.assets, "fonts/cafe24_surround_air.ttf")
-        }
-        rb_aritaBuri_edit.setOnClickListener {
-            font = "fonts/arita_buri.otf"
-            et_edit.typeface = Typeface.createFromAsset(this.assets, "fonts/arita_buri.otf")
-        }
-        rb_mapoFlowerIsland_edit.setOnClickListener {
-            font = "fonts/mapo_flower_island.ttf"
-            et_edit.typeface = Typeface.createFromAsset(this.assets, "fonts/mapo_flower_island.ttf")
+
+        rb_cafe24SurroundAir_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.CAFE24_SURROUND_AIR)
         }
 
-        rb_hambaksnow_edit.setOnClickListener {
-            et_edit.typeface = Typeface.createFromAsset(this.assets, "fonts/hambaksnow.ttf")
-            font = "fonts/hambaksnow.ttf"
+        rb_aritaBuri_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.ARITA_BURI)
+        }
+
+        rb_mapoFlowerIsland_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.MAPO_FLOWER)
+        }
+
+        rb_hambaksnow_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.HAMBAK_SNOW)
+        }
+        rb_cafe24_shining_star_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.CAFE24_SHINING_STAR)
+        }
+        rb_nanum_barun_pen_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.NANUM_BARUN_PEN)
+        }
+        rb_nanum_pen_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.NANUM_PEN)
+        }
+        rb_middle_school_student_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.MIDDLE_SCHOOL_STUDENT)
+        }
+        rb_bm_euljiro_canvas.setOnClickListener {
+            replaceFont(EditTextActivity.BM_EUJIRO)
         }
 
         seek?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -83,6 +111,39 @@ class EditTextActivity : AppCompatActivity() {
             }
         })
 
+    }
+    private fun setFontOnClickListener() {
+        rb_cafe24SurroundAir_edit.setOnClickListener {
+            replaceFont(CAFE24_SURROUND_AIR)
+        }
+        rb_aritaBuri_edit.setOnClickListener {
+            replaceFont(ARITA_BURI)
+        }
+        rb_mapoFlowerIsland_edit.setOnClickListener {
+            replaceFont(MAPO_FLOWER)
+        }
+        rb_hambaksnow_edit.setOnClickListener {
+            replaceFont(HAMBAK_SNOW)
+        }
+        rb_cafe24_shining_star_edit.setOnClickListener {
+            replaceFont(CAFE24_SHINING_STAR)
+        }
+        rb_nanum_barun_pen_edit.setOnClickListener {
+            replaceFont(NANUM_BARUN_PEN)
+        }
+        rb_nanum_pen_edit.setOnClickListener {
+            replaceFont(NANUM_PEN)
+        }
+        rb_middle_school_student_edit.setOnClickListener {
+            replaceFont(MIDDLE_SCHOOL_STUDENT)
+        }
+        rb_bm_euljiro_edit.setOnClickListener {
+            replaceFont(BM_EUJIRO)
+        }
+    }
+
+    private fun replaceFont(font: String) {
+        et_edit.typeface = Typeface.createFromAsset(this.assets, font)
     }
 
 }
