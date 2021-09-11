@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sejigner.glee.fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), FragmentMyPage.MyPageListener {
+class MainActivity : AppCompatActivity(){
 
     private val fragmentHome by lazy { FragmentHome() }
     private val fragmentChat by lazy { FragmentShare() }
@@ -109,18 +109,6 @@ class MainActivity : AppCompatActivity(), FragmentMyPage.MyPageListener {
         }
 
         window.attributes = winParams
-    }
-
-    override fun showFragmentLicense() {
-        val transaction = supportFragmentManager.beginTransaction()
-            .add(R.id.layout_main_activity,FragmentLicense())
-            .commit()
-    }
-
-    override fun showFragmentOpenSource() {
-        val transaction = supportFragmentManager.beginTransaction()
-            .add(R.id.layout_main_activity,FragmentLicense())
-            .commit()
     }
 
 }

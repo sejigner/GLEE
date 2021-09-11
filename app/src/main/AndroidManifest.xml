@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sejigner.glee">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,16 +14,28 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Glee"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".EditTextActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".WorkDetailActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".OpenSourceActivity"
+            android:screenOrientation="landscape"
+            android:exported="true" />
+        <activity
+            android:name=".LicenseActivity"
+            android:screenOrientation="landscape"
+            android:exported="true" />
+        <activity
+            android:name=".EditTextActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WorkDetailActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".CanvasActivity"
             android:hardwareAccelerated="false"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".SplashActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SplashActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,8 +43,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
