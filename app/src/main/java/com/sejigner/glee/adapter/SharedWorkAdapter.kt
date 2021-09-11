@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sejigner.glee.databinding.ItemPhotoBinding
 import com.sejigner.glee.model.UserWork
 import javax.inject.Inject
@@ -44,12 +45,15 @@ class SharedWorkAdapter @Inject constructor() : ListAdapter<UserWork, SharedWork
 
     override fun onBindViewHolder(holder: WorkViewHolder, position: Int) {
         val photo = currentList[position]
-        holder.binding.apply {
-            ivPhoto.setImageURI(photo.contentUri)
-            ConstraintSet().apply {
-                clone(root)
-                applyTo(root)
-            }
-        }
+        holder.binding.ivPhoto.setImageURI(photo.contentUri)
+        Glide.with(holder.itemView.context).load(photo.contentUri).into(holder.binding.ivPhoto)
+//        holder.binding.apply {
+//            ivPhoto.setImageURI(photo.contentUri)
+//            Glide.with(holder.itemView.context).load(photo.contentUri).into(holder.binding.ivPhoto)
+//            ConstraintSet().apply {
+//                clone(root)
+//                applyTo(root)
+//            }
+//        }
     }
 }

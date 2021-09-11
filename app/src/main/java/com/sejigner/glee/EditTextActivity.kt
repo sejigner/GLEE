@@ -1,14 +1,18 @@
 package com.sejigner.glee
 
+import android.content.Context
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.SeekBar
 import com.sejigner.glee.fragment.EditDialog
 import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.activity_edit_text.*
+import java.lang.Exception
+import java.util.*
 
 class EditTextActivity : AppCompatActivity() {
 
