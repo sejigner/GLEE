@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.sejigner.glee.Scroll.isPainting
+import com.sejigner.glee.customFont.CustomFontHelper
 import com.sejigner.glee.fragment.SaveDialog
 import com.sejigner.glee.paint.CustomView
 import kotlinx.android.synthetic.main.activity_canvas.*
@@ -49,7 +50,7 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
     var title: String? = null
     var author: String? = null
     var content: String? = null
-    var fontSize: Int? = 30
+    var fontSize: Int? = 20
     var fileName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -264,7 +265,8 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
     }
 
     private fun replaceFont(font: String) {
-        tv_canvas_content.typeface = Typeface.createFromAsset(this.assets, font)
+        // et_edit.typeface = Typeface.createFromAsset(this.assets, font)
+        CustomFontHelper.setCustomFont(tv_canvas_content,font,this)
     }
 
     private fun setBackgroundColor(color : Int) {
@@ -378,10 +380,6 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
                 content = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
                 hideGuideTools()
             }
-        if (intent.getStringExtra("FONT_SIZE") != null) {
-            fontSize = intent.getIntExtra("FONT_SIZE", 40)
-            tv_canvas_content.textSize = fontSize!!.toFloat()
-        }
 
         title = intent.getStringExtra("TITLE")
         author = intent.getStringExtra("AUTHOR")
@@ -391,7 +389,6 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
         tv_canvas_title.text = title
         tv_canvas_author.text = author
         tv_canvas_content.text = content
-        tv_canvas_content.textSize = fontSize!!.toFloat()
 
 
     }

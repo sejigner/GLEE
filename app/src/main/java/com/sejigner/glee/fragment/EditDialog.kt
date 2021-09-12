@@ -22,8 +22,6 @@ class EditDialog: DialogFragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             content = it.getString(EDIT_CONTENT)
-            fontSize = it.getString(EDIT_FONT_SIZE)
-
         }
     }
 
@@ -37,18 +35,13 @@ class EditDialog: DialogFragment() {
 
         if(content.isNullOrEmpty()) {
             tv_notice_edit_dialog.text = "작성된 글이 없습니다. 빈 화면으로 시작할까요?"
-            content = ""
         } else {
             tv_notice_edit_dialog.text = content
             hasWritten = true
         }
 
         btn_yes_edit_dialog.setOnClickListener {
-            val intent = Intent(requireActivity(),CanvasActivity::class.java)
-            intent.putExtra("CONTENT",content + "\n\n\n")
-            intent.putExtra("FONT_SIZE",fontSize)
-            intent.putExtra("HAS_WRITTEN", hasWritten)
-            startActivity(intent)
+            (activity as EditDialog.EditDialogListener).runCanvasActivity()
             dismiss()
         }
 
@@ -64,6 +57,10 @@ class EditDialog: DialogFragment() {
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
+    interface EditDialogListener {
+        fun runCanvasActivity()
+    }
+
     companion object {
         const val TAG = "EditDialog"
         private const val EDIT_CONTENT = "EDIT_CONTENT"
@@ -71,10 +68,9 @@ class EditDialog: DialogFragment() {
         private const val HAS_WRITTEN = "HAS_WRITTEN"
 
 
-        fun newInstance(content: String, fontSize : Int) = EditDialog().apply {
+        fun newInstance(content: String) = EditDialog().apply {
             arguments = Bundle().apply {
                 putString(EDIT_CONTENT, content)
-                putInt(EDIT_FONT_SIZE, fontSize)
             }
         }
     }

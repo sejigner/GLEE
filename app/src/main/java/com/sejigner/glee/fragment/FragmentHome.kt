@@ -19,7 +19,6 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_work.*
 import kotlinx.android.synthetic.main.item_work.view.*
 
 
@@ -39,7 +38,11 @@ class FragmentHome : Fragment() {
     var participation_1: Int = 0
     private lateinit var groupAdapter: GroupAdapter<GroupieViewHolder>
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    )
             : View? {
 
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -48,17 +51,42 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sample1 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, resources.getString(R.string.work_sample_content_1).length,resources.getString(R.string.work_sample_content_1))
-        val sample2 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
-        val sample3 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
-        val sample4 = SampleWorkModel("별 헤는 밤", "윤동주", participation_1, 468, resources.getString(R.string.work_sample_preview_1))
+        val sample1 = SampleWorkModel(
+            "별 헤는 밤",
+            "윤동주",
+            participation_1,
+            resources.getString(R.string.work_sample_content_1).length,
+            resources.getString(R.string.work_sample_content_1)
+        )
+        val sample2 = SampleWorkModel(
+            "별 헤는 밤",
+            "윤동주",
+            participation_1,
+            468,
+            resources.getString(R.string.work_sample_preview_1)
+        )
+        val sample3 = SampleWorkModel(
+            "별 헤는 밤",
+            "윤동주",
+            participation_1,
+            468,
+            resources.getString(R.string.work_sample_preview_1)
+        )
+        val sample4 = SampleWorkModel(
+            "별 헤는 밤",
+            "윤동주",
+            participation_1,
+            468,
+            resources.getString(R.string.work_sample_preview_1)
+        )
 
         val adapter = GroupAdapter<GroupieViewHolder>()
         adapter.add(SampleWork(sample1))
         adapter.add(SampleWork(sample2))
         adapter.add(SampleWork(sample3))
         adapter.add(SampleWork(sample4))
-        val linearLayoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
+        val linearLayoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 
 
 
@@ -68,7 +96,7 @@ class FragmentHome : Fragment() {
 
             val intent = Intent(requireActivity(), CanvasActivity::class.java)
 
-            intent.putExtra(TITLE, workItem.title )
+            intent.putExtra(TITLE, workItem.title)
             intent.putExtra(AUTHOR, workItem.author)
             intent.putExtra(CONTENT, workItem.content)
             startActivity(intent)
@@ -98,17 +126,21 @@ class FragmentHome : Fragment() {
         tvNewTranscription = view.findViewById(R.id.tv_new_transcription)
 
         rbCafe24.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
+            rv_work_preview.tv_work_content.typeface =
+                Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
         }
         rbAritaBuri.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/arita_buri.otf")
+            rv_work_preview.tv_work_content.typeface =
+                Typeface.createFromAsset(requireActivity().assets, "fonts/arita_buri.otf")
         }
         rbMapoFlowerIsland.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/mapo_flower_island.ttf")
+            rv_work_preview.tv_work_content.typeface =
+                Typeface.createFromAsset(requireActivity().assets, "fonts/mapo_flower_island.ttf")
         }
 
         rbHambakSnow.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
+            rv_work_preview.tv_work_content.typeface =
+                Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
         }
 
         rv_work_preview.layoutManager = linearLayoutManager
@@ -132,9 +164,10 @@ class SampleWork(val sampleWork: SampleWorkModel) :
         viewHolder.itemView.apply {
             tv_work_title.text = sampleWork.title
             tv_work_author.text = sampleWork.author
-            tv_work_character_number.text = sampleWork.characterNumber.toString()+ "자"
-            tv_work_participation.text = sampleWork.participationNumber.toString() + resources.getString(R.string.participation_number)
-            tv_work_content.text =sampleWork.content
+            tv_work_character_number.text = sampleWork.characterNumber.toString() + "자"
+            tv_work_participation.text =
+                sampleWork.participationNumber.toString() + resources.getString(R.string.participation_number)
+            tv_work_content.text = sampleWork.content
         }
     }
 

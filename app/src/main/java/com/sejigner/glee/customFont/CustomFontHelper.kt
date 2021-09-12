@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.widget.EditText
+import android.widget.TextView
 import com.sejigner.glee.R
 
 object CustomFontHelper {
@@ -16,8 +17,15 @@ object CustomFontHelper {
      */
     fun setCustomFont(editText: EditText, context: Context, attrs: AttributeSet?) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.CustomFont)
-        val font = a.getString(R.styleable.CustomFont_font)
+        val font = a.getString(R.styleable.CustomFont_fontName)
         setCustomFont(editText, font, context)
+        a.recycle()
+    }
+
+    fun setCustomFont(textView: TextView, context: Context, attrs: AttributeSet?) {
+        val a = context.obtainStyledAttributes(attrs, R.styleable.CustomFont)
+        val font = a.getString(R.styleable.CustomFont_fontName)
+        setCustomFont(textView, font, context)
         a.recycle()
     }
 
@@ -31,9 +39,19 @@ object CustomFontHelper {
         if (font == null) {
             return
         }
-        val tf: Typeface ?= FontCache.get(font, context!!)
+        val tf: Typeface ?= FontCache[font, context!!]
         if (tf != null) {
             editText.typeface = tf
+        }
+    }
+
+    fun setCustomFont(textView: TextView, font: String?, context: Context?) {
+        if (font == null) {
+            return
+        }
+        val tf: Typeface ?= FontCache[font, context!!]
+        if (tf != null) {
+            textView.typeface = tf
         }
     }
 }

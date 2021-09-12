@@ -19,3 +19,18 @@ class EditTextPlus : androidx.appcompat.widget.AppCompatEditText {
         CustomFontHelper.setCustomFont(this, context, attrs)
     }
 }
+
+class TextViewPlus : androidx.appcompat.widget.AppCompatTextView {
+    constructor(context: Context?) : super(context!!) {}
+    constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
+        CustomFontHelper.setCustomFont(this, context, attrs)
+    }
+
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+        context!!,
+        attrs,
+        defStyle
+    ) {
+        CustomFontHelper.setCustomFont(this, context, attrs)
+    }
+}
