@@ -27,8 +27,6 @@ class FragmentMyPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        hs_major_works.parent.requestDisallowInterceptTouchEvent(false)
-
         iv_menu.setOnClickListener {
             val pop = PopupMenu(requireActivity(), it)
 

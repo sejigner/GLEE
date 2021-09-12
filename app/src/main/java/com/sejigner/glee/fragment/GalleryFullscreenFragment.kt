@@ -75,7 +75,7 @@ class GalleryFullscreenFragment : DialogFragment() {
             GlideApp.with(context!!)
                 .load(image.contentUri)
                 .apply(RequestOptions())
-                .format(DecodeFormat.PREFER_ARGB_8888)
+                .format(DecodeFormat.PREFER_RGB_565)
                 .override(Target.SIZE_ORIGINAL)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(view.ivFullscreenImage)

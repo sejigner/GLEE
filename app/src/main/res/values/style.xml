@@ -4,4 +4,7 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20dp</item>
     </style>
+    <style name="editText" parent="@android:style/Widget.EditText">
+        <item name="android:fontFamily">fonts/noto_sans_cjk.otf</item>
+    </style>
 </resources>

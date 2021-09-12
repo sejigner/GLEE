@@ -21,7 +21,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sejigner.glee.adapter.SharedWorkAdapter
 import com.sejigner.glee.databinding.FragmentShareBinding
 import com.sejigner.glee.model.UserWork
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 

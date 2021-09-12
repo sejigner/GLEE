@@ -1,19 +1,26 @@
 package com.sejigner.glee
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.SeekBar
+import com.sejigner.glee.customFont.CustomFontHelper
 import com.sejigner.glee.fragment.EditDialog
 import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.activity_edit_text.*
+import java.lang.Exception
+import java.util.*
 
-class EditTextActivity : AppCompatActivity() {
+class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
 
     var fontSize: Int? = 30
     var text: String? = ""
+    var hasWritten : Boolean = false
 
     companion object {
         const val CAFE24_SURROUND_AIR = "fonts/cafe24_surround_air.ttf"
@@ -38,7 +45,14 @@ class EditTextActivity : AppCompatActivity() {
         }
 
         tv_start.setOnClickListener {
-            EditDialog.newInstance(text!!,fontSize!!).show(this@EditTextActivity.supportFragmentManager, EditDialog.TAG)
+            var preview : String ?= null
+            if(text!!.isNotEmpty()) {
+                preview = if(text!!.length > 20) {
+                    text!!.substring(0..20)
+                } else text
+                hasWritten = true
+            } else preview =""
+            EditDialog.newInstance(preview!!).show(this@EditTextActivity.supportFragmentManager, EditDialog.TAG)
         }
 
         setFontOnClickListener()
@@ -108,7 +122,14 @@ class EditTextActivity : AppCompatActivity() {
     }
 
     private fun replaceFont(font: String) {
-        et_edit.typeface = Typeface.createFromAsset(this.assets, font)
+        // et_edit.typeface = Typeface.createFromAsset(this.assets, font)
+        CustomFontHelper.setCustomFont(et_edit,font,this)
     }
 
+    override fun runCanvasActivity() {
+        val intent = Intent(this@EditTextActivity,CanvasActivity::class.java)
+        intent.putExtra("CONTENT",text + "\n\n\n")
+        intent.putExtra("HAS_WRITTEN", hasWritten)
+        startActivity(intent)
+    }
 }
