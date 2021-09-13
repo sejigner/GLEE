@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Glee</string>
     <string name="app_name_kor">글리</string>
+    <string name="work_sample_title_1">별 헤는 밤</string>
+    <string name="work_sample_author_1">윤동주</string>
     <string name="work_sample_preview_1">계절이 지나가는 하늘에는\n가을로 가득 차 있습니다.\n나는 아무 걱정도 없이\n가을 속의 별들을 \n다 헤일 듯합니다...</string>
     <string name="work_sample_content_1">
         계절이 지나가는 하늘에는 가을로 가득 차 있습니다. 나는 아무 걱정도 없이 가을 속의 별들을 다 헤일 듯합니다. 가슴 속에 하나 둘 새겨지는 별을
@@ -34,6 +36,64 @@
         (1941. 11. 5.)
 
     </string>
+    <string name="work_sample_title_2">사랑은 깊으기 푸른 하늘</string>
+    <string name="work_sample_author_2">김영랑</string>
+    <string name="work_sample_content_2">사랑은 깊으기 푸른 하늘
+        맹세는 가볍기 흰구름쪽
+        그 구름 사라진다 서럽지는 않으나
+        그 하늘 큰 조화 못 믿지는 않으나
+    </string>
+
+    <string name="work_sample_title_3">내 마음을 아실 이</string>
+    <string name="work_sample_author_3">김영랑</string>
+    <string name="work_sample_content_3">
+        내 마음을 아실 이
+        내 혼자 마음 날 같이 아실 이
+        그래도 어데나 계실 것이면
+        내 마음에 때때로 어리우는 티끌과
+        속임없는 눈물의 간곡한 방울방울
+        푸른 밤 고이 맺는 이슬 같은 보람을
+        보밴 듯 감추었다 내어드리지.
+        아! 그립다.
+        내 혼자 마음 날 같이 아실 이
+        꿈에나 아득히 보이는가.
+        향맑은 옥돌에 불이 달어
+        사랑은 타기도 하오련만
+        불빛에 연긴 듯 희미론 마음은
+        사랑도 모르리 내 혼자 마음은.
+    </string>
+
+    <string name="work_sample_title_4">님 두시고 가는 길</string>
+    <string name="work_sample_author_4">김영랑</string>
+    <string name="work_sample_content_4">
+        님 두시고 가는 길의 애끈한 마음이여
+        한숨 쉬면 꺼질 듯한 조매로운 꿈길이여
+        이 밤은 캄캄한 어느 뉘 시골인가
+        이슬같이 고인 눈물을 손끝으로 깨치나니
+    </string>
+
+    <string name="work_sample_title_5">다정히도 불어오는 바람</string>
+    <string name="work_sample_author_5">김영랑</string>
+    <string name="work_sample_content_5">
+        다정히도 불어오는 바람이길래
+        내 숨결 가볍게 실어 보냈지
+        하늘갓을 스치고 휘도는 바람
+        어이면 한숨을 몰아다 주오
+    </string>
+
+    <string name="work_sample_title_6">서시</string>
+    <string name="work_sample_author_6">윤동주</string>
+    <string name="work_sample_content_6">
+        죽는 날까지 하늘을 우러러 한 점 부끄럼이 없기를,
+        잎새에 이는 바람에도 나는 괴로워했다.
+        별을 노래하는 마음으로 모든 죽어 가는 것을 사랑해야지
+        그리고 나한테 주어진 길을 걸어가야겠다.
+        \n\n오늘 밤에도 별이 바람에 스치운다.
+    </string>
+
+
+
+
     <string name="font_hambaksnow">함박눈</string>
     <string name="font_mapoFlowerIsland">마포꽃섬</string>
     <string name="font_cafe24SurroundAir">카페24 써라운드에어</string>

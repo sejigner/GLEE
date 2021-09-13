@@ -93,7 +93,7 @@
             android:gravity="center"
             android:maxLines="8"
             android:ellipsize="end"
-            android:lineSpacingExtra="20dp"
+            android:lineSpacingExtra="40dp"
             android:paddingHorizontal="40dp"
             android:text="@string/work_sample_preview_1"
             android:textSize="22sp"

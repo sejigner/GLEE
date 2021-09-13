@@ -52,32 +52,47 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sample1 = SampleWorkModel(
-            "별 헤는 밤",
-            "윤동주",
+            resources.getString(R.string.work_sample_title_1),
+            resources.getString(R.string.work_sample_author_1),
             participation_1,
             resources.getString(R.string.work_sample_content_1).length,
-            resources.getString(R.string.work_sample_content_1)
+            resources.getString(R.string.work_sample_content_1).substring(0..70) + "..."
         )
         val sample2 = SampleWorkModel(
-            "별 헤는 밤",
-            "윤동주",
+            resources.getString(R.string.work_sample_title_2),
+            resources.getString(R.string.work_sample_author_2),
             participation_1,
-            468,
-            resources.getString(R.string.work_sample_preview_1)
+            resources.getString(R.string.work_sample_content_2).length,
+            resources.getString(R.string.work_sample_content_2).substring(0..60) + "..."
         )
         val sample3 = SampleWorkModel(
-            "별 헤는 밤",
-            "윤동주",
+            resources.getString(R.string.work_sample_title_3),
+            resources.getString(R.string.work_sample_author_3),
             participation_1,
-            468,
-            resources.getString(R.string.work_sample_preview_1)
+            resources.getString(R.string.work_sample_content_3).length,
+            resources.getString(R.string.work_sample_content_3).substring(0..70) + "..."
         )
         val sample4 = SampleWorkModel(
-            "별 헤는 밤",
-            "윤동주",
+            resources.getString(R.string.work_sample_title_4),
+            resources.getString(R.string.work_sample_author_4),
             participation_1,
-            468,
-            resources.getString(R.string.work_sample_preview_1)
+            resources.getString(R.string.work_sample_content_4).length,
+            resources.getString(R.string.work_sample_content_4).substring(0..70) + "..."
+        )
+        val sample5 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_5),
+            resources.getString(R.string.work_sample_author_5),
+            participation_1,
+            resources.getString(R.string.work_sample_content_5).length,
+            resources.getString(R.string.work_sample_content_5).substring(0..50) + "..."
+        )
+
+        val sample6 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_6),
+            resources.getString(R.string.work_sample_author_6),
+            participation_1,
+            resources.getString(R.string.work_sample_content_6).length,
+            resources.getString(R.string.work_sample_content_6).substring(0..50) + "..."
         )
 
         val adapter = GroupAdapter<GroupieViewHolder>()
@@ -85,6 +100,8 @@ class FragmentHome : Fragment() {
         adapter.add(SampleWork(sample2))
         adapter.add(SampleWork(sample3))
         adapter.add(SampleWork(sample4))
+        adapter.add(SampleWork(sample5))
+        adapter.add(SampleWork(sample6))
         val linearLayoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 
