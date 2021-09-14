@@ -83,8 +83,6 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
             customView!!.init(width, height)
         }
         */
-        Toast.makeText(this, "원하는 글씨체를 선택하고 따라써보세요.", Toast.LENGTH_LONG).show()
-
         btn_toggle_scroll.setOnClickListener {
             if (isPainting) {
                 btn_toggle_scroll.setImageResource(R.drawable.btn_scroll)
