@@ -1,5 +1,7 @@
 package com.sejigner.glee.fragment
 
+import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
@@ -19,6 +21,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.item_work.view.*
 
 
@@ -30,13 +33,21 @@ class FragmentHome : Fragment() {
         const val CONTENT = "CONTENT"
     }
 
+    private lateinit var adapter: GroupAdapter<GroupieViewHolder>
     private lateinit var rbCafe24: TextView
     private lateinit var rbAritaBuri: TextView
     private lateinit var rbMapoFlowerIsland: TextView
     private lateinit var rbHambakSnow: TextView
     private lateinit var tvNewTranscription: TextView
+    private var sample1 : SampleWorkModel ?= null
+    private var sample2 : SampleWorkModel ?= null
+    private var sample3 : SampleWorkModel ?= null
+    private var sample4 : SampleWorkModel ?= null
+    private var sample5 : SampleWorkModel ?= null
+    private var sample6 : SampleWorkModel ?= null
+    var textChoice = ""
+
     var participation_1: Int = 0
-    private lateinit var groupAdapter: GroupAdapter<GroupieViewHolder>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,61 +62,9 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sample1 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_1),
-            resources.getString(R.string.work_sample_author_1),
-            participation_1,
-            resources.getString(R.string.work_sample_content_1).length,
-            resources.getString(R.string.work_sample_content_1).substring(0..70) + "..."
-        )
-        val sample2 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_2),
-            resources.getString(R.string.work_sample_author_2),
-            participation_1,
-            resources.getString(R.string.work_sample_content_2).length,
-            resources.getString(R.string.work_sample_content_2).substring(0..60) + "..."
-        )
-        val sample3 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_3),
-            resources.getString(R.string.work_sample_author_3),
-            participation_1,
-            resources.getString(R.string.work_sample_content_3).length,
-            resources.getString(R.string.work_sample_content_3).substring(0..70) + "..."
-        )
-        val sample4 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_4),
-            resources.getString(R.string.work_sample_author_4),
-            participation_1,
-            resources.getString(R.string.work_sample_content_4).length,
-            resources.getString(R.string.work_sample_content_4).substring(0..70) + "..."
-        )
-        val sample5 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_5),
-            resources.getString(R.string.work_sample_author_5),
-            participation_1,
-            resources.getString(R.string.work_sample_content_5).length,
-            resources.getString(R.string.work_sample_content_5).substring(0..50) + "..."
-        )
-
-        val sample6 = SampleWorkModel(
-            resources.getString(R.string.work_sample_title_6),
-            resources.getString(R.string.work_sample_author_6),
-            participation_1,
-            resources.getString(R.string.work_sample_content_6).length,
-            resources.getString(R.string.work_sample_content_6).substring(0..50) + "..."
-        )
-
-        val adapter = GroupAdapter<GroupieViewHolder>()
-        adapter.add(SampleWork(sample1))
-        adapter.add(SampleWork(sample2))
-        adapter.add(SampleWork(sample3))
-        adapter.add(SampleWork(sample4))
-        adapter.add(SampleWork(sample5))
-        adapter.add(SampleWork(sample6))
-        val linearLayoutManager =
-            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
-
-
+        adapter = GroupAdapter<GroupieViewHolder>()
+        genModel()
+        val childCount = rv_work_preview.getChildCount()
 
         adapter.setOnItemClickListener { item, view ->
 
@@ -136,17 +95,30 @@ class FragmentHome : Fragment() {
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         })
 
+        val linearLayoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        rv_work_preview.layoutManager = linearLayoutManager
+        rv_work_preview.adapter = adapter
+
+
         rbCafe24 = view.findViewById(R.id.rb_cafe24SurroundAir)
         rbAritaBuri = view.findViewById(R.id.rb_aritaBuri)
         rbMapoFlowerIsland = view.findViewById(R.id.rb_mapoFlowerIsland)
         rbHambakSnow = view.findViewById(R.id.rb_hambaksnow)
         tvNewTranscription = view.findViewById(R.id.tv_new_transcription)
 
+
+
         rbCafe24.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface =
-                Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
+            for ( i in 0..childCount) {
+                val holder = rv_work_preview.getChildViewHolder(rv_work_preview.getChildAt(i))
+                holder.itemView.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
+            }
+
+            //rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
         }
         rbAritaBuri.setOnClickListener {
+            textChoice="fonts/arita_buri.otf"
             rv_work_preview.tv_work_content.typeface =
                 Typeface.createFromAsset(requireActivity().assets, "fonts/arita_buri.otf")
         }
@@ -160,13 +132,67 @@ class FragmentHome : Fragment() {
                 Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
         }
 
-        rv_work_preview.layoutManager = linearLayoutManager
-        rv_work_preview.adapter = adapter
+
+
+
 
         tvNewTranscription.setOnClickListener {
             val intent = Intent(activity, EditTextActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun genModel() {
+        sample1 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_1),
+            resources.getString(R.string.work_sample_author_1),
+            participation_1,
+            resources.getString(R.string.work_sample_content_1).length,
+            resources.getString(R.string.work_sample_content_1).substring(0..70) + "..."
+        )
+        sample2 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_2),
+            resources.getString(R.string.work_sample_author_2),
+            participation_1,
+            resources.getString(R.string.work_sample_content_2).length,
+            resources.getString(R.string.work_sample_content_2).substring(0..60) + "..."
+        )
+        sample3 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_3),
+            resources.getString(R.string.work_sample_author_3),
+            participation_1,
+            resources.getString(R.string.work_sample_content_3).length,
+            resources.getString(R.string.work_sample_content_3).substring(0..70) + "..."
+        )
+        sample4 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_4),
+            resources.getString(R.string.work_sample_author_4),
+            participation_1,
+            resources.getString(R.string.work_sample_content_4).length,
+            resources.getString(R.string.work_sample_content_4).substring(0..70) + "..."
+        )
+        sample5 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_5),
+            resources.getString(R.string.work_sample_author_5),
+            participation_1,
+            resources.getString(R.string.work_sample_content_5).length,
+            resources.getString(R.string.work_sample_content_5).substring(0..50) + "..."
+        )
+
+        sample6 = SampleWorkModel(
+            resources.getString(R.string.work_sample_title_6),
+            resources.getString(R.string.work_sample_author_6),
+            participation_1,
+            resources.getString(R.string.work_sample_content_6).length,
+            resources.getString(R.string.work_sample_content_6).substring(0..50) + "..."
+        )
+
+        adapter.add(SampleWork(sample1!!))
+        adapter.add(SampleWork(sample2!!))
+        adapter.add(SampleWork(sample3!!))
+        adapter.add(SampleWork(sample4!!))
+        adapter.add(SampleWork(sample5!!))
+        adapter.add(SampleWork(sample6!!))
     }
 }
 
@@ -176,6 +202,8 @@ class SampleWork(val sampleWork: SampleWorkModel) :
     val title = sampleWork.title
     val author = sampleWork.author
     val content = sampleWork.content
+
+
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.apply {
@@ -187,6 +215,7 @@ class SampleWork(val sampleWork: SampleWorkModel) :
             tv_work_content.text = sampleWork.content
         }
     }
+
 
     override fun getLayout(): Int {
         return R.layout.item_work
