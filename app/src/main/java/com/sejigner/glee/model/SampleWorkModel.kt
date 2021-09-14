@@ -6,4 +6,7 @@ data class SampleWorkModel(
     val participationNumber : Int,
     val characterNumber : Int,
     val content : String
-)
+) {
+    constructor(title: String) : this(title, "", 0,0,"")
+}
+
