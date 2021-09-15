@@ -1,7 +1,5 @@
 package com.sejigner.glee.fragment
 
-import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
@@ -16,12 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sejigner.glee.CanvasActivity
 import com.sejigner.glee.EditTextActivity
 import com.sejigner.glee.R
+import com.sejigner.glee.adapter.SampleWorkAdapter
 import com.sejigner.glee.model.SampleWorkModel
-import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.android.synthetic.main.item_work.view.*
 
 
@@ -33,7 +30,7 @@ class FragmentHome : Fragment() {
         const val CONTENT = "CONTENT"
     }
 
-    private lateinit var adapter: GroupAdapter<GroupieViewHolder>
+    private lateinit var sampleWorkAdapter: SampleWorkAdapter
     private lateinit var rbCafe24: TextView
     private lateinit var rbAritaBuri: TextView
     private lateinit var rbMapoFlowerIsland: TextView
@@ -49,6 +46,8 @@ class FragmentHome : Fragment() {
 
     var participation_1: Int = 0
 
+    val list = mutableListOf<SampleWorkModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,21 +61,9 @@ class FragmentHome : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = GroupAdapter<GroupieViewHolder>()
-        genModel()
+        initRecyclerView()
         val childCount = rv_work_preview.getChildCount()
 
-        adapter.setOnItemClickListener { item, view ->
-
-            val workItem = item as SampleWork
-
-            val intent = Intent(requireActivity(), CanvasActivity::class.java)
-
-            intent.putExtra(TITLE, workItem.title)
-            intent.putExtra(AUTHOR, workItem.author)
-            intent.putExtra(CONTENT, workItem.content)
-            startActivity(intent)
-        }
 
         // 부모 뷰 터치 가로채기 방지
         rv_work_preview.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
@@ -98,7 +85,7 @@ class FragmentHome : Fragment() {
         val linearLayoutManager =
             LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         rv_work_preview.layoutManager = linearLayoutManager
-        rv_work_preview.adapter = adapter
+        rv_work_preview.adapter = sampleWorkAdapter
 
 
         rbCafe24 = view.findViewById(R.id.rb_cafe24SurroundAir)
@@ -118,18 +105,22 @@ class FragmentHome : Fragment() {
             //rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
         }
         rbAritaBuri.setOnClickListener {
-            textChoice="fonts/arita_buri.otf"
+            textChoice=EditTextActivity.ARITA_BURI
             rv_work_preview.tv_work_content.typeface =
                 Typeface.createFromAsset(requireActivity().assets, "fonts/arita_buri.otf")
+            FontClickListener.onClickFont(textChoice)
+            sampleWorkAdapter.notifyDataSetChanged()
         }
         rbMapoFlowerIsland.setOnClickListener {
             rv_work_preview.tv_work_content.typeface =
                 Typeface.createFromAsset(requireActivity().assets, "fonts/mapo_flower_island.ttf")
+            sampleWorkAdapter.notifyDataSetChanged()
         }
 
         rbHambakSnow.setOnClickListener {
             rv_work_preview.tv_work_content.typeface =
                 Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
+            sampleWorkAdapter.notifyDataSetChanged()
         }
 
 
@@ -142,7 +133,7 @@ class FragmentHome : Fragment() {
         }
     }
 
-    private fun genModel() {
+    private fun initRecyclerView() {
         sample1 = SampleWorkModel(
             resources.getString(R.string.work_sample_title_1),
             resources.getString(R.string.work_sample_author_1),
@@ -187,14 +178,48 @@ class FragmentHome : Fragment() {
             resources.getString(R.string.work_sample_content_6).substring(0..50) + "..."
         )
 
-        adapter.add(SampleWork(sample1!!))
-        adapter.add(SampleWork(sample2!!))
-        adapter.add(SampleWork(sample3!!))
-        adapter.add(SampleWork(sample4!!))
-        adapter.add(SampleWork(sample5!!))
-        adapter.add(SampleWork(sample6!!))
+        sampleWorkAdapter = SampleWorkAdapter(requireActivity())
+        rv_work_preview.adapter = sampleWorkAdapter
+
+
+        list.apply {
+            add(sample1!!)
+            add(sample2!!)
+            add(sample3!!)
+            add(sample4!!)
+            add(sample5!!)
+            add(sample6!!)
+
+            sampleWorkAdapter.listOfWorks = list
+            sampleWorkAdapter.notifyDataSetChanged()
+
+        }
+
+        sampleWorkAdapter.setItemClickListener( object : SampleWorkAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                val workItem = sampleWorkAdapter.listOfWorks[position]
+
+                val intent = Intent(requireActivity(), CanvasActivity::class.java)
+
+                intent.putExtra(TITLE, workItem.title)
+                intent.putExtra(AUTHOR, workItem.author)
+                intent.putExtra(CONTENT, workItem.content)
+                startActivity(intent)
+            }
+        })
+
+    }
+
+    private fun initRecycler() {
+
     }
 }
+
+interface FontClickListener {
+    fun onClickFont(font: String)
+}
+
+
 
 class SampleWork(val sampleWork: SampleWorkModel) :
     Item<GroupieViewHolder>() {
