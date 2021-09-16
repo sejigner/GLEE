@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.sejigner.glee.*
 import com.sejigner.glee.adapter.WorkListMyPageStaggeredAdapter
 import com.sejigner.glee.model.WorkModelMyPage
@@ -41,7 +42,7 @@ class FragmentMyPage : Fragment() {
 
 
                     R.id.item_open_source -> {
-                        val intent = Intent(requireActivity(),OpenSourceActivity::class.java)
+                        val intent = Intent(requireActivity(), OssLicensesMenuActivity::class.java)
                         startActivity(intent)
                     }
 
