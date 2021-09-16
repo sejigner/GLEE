@@ -97,29 +97,42 @@ class FragmentHome : Fragment() {
 
 
         rbCafe24.setOnClickListener {
-            for ( i in 0..childCount) {
-                val holder = rv_work_preview.getChildViewHolder(rv_work_preview.getChildAt(i))
-                holder.itemView.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
-            }
+            sampleWorkAdapter.selectedFont = EditTextActivity.CAFE24_SURROUND_AIR
+            sampleWorkAdapter.notifyDataSetChanged()
 
-            //rv_work_preview.tv_work_content.typeface = Typeface.createFromAsset(requireActivity().assets, "fonts/cafe24_surround_air.ttf")
         }
         rbAritaBuri.setOnClickListener {
-            textChoice=EditTextActivity.ARITA_BURI
-            rv_work_preview.tv_work_content.typeface =
-                Typeface.createFromAsset(requireActivity().assets, "fonts/arita_buri.otf")
-            FontClickListener.onClickFont(textChoice)
+            sampleWorkAdapter.selectedFont = EditTextActivity.ARITA_BURI
             sampleWorkAdapter.notifyDataSetChanged()
         }
         rbMapoFlowerIsland.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface =
-                Typeface.createFromAsset(requireActivity().assets, "fonts/mapo_flower_island.ttf")
+            sampleWorkAdapter.selectedFont = EditTextActivity.MAPO_FLOWER
             sampleWorkAdapter.notifyDataSetChanged()
         }
 
         rbHambakSnow.setOnClickListener {
-            rv_work_preview.tv_work_content.typeface =
-                Typeface.createFromAsset(requireActivity().assets, "fonts/hambaksnow.ttf")
+            sampleWorkAdapter.selectedFont = EditTextActivity.HAMBAK_SNOW
+            sampleWorkAdapter.notifyDataSetChanged()
+        }
+
+        rb_cafe24_shining_star.setOnClickListener {
+            sampleWorkAdapter.selectedFont = EditTextActivity.CAFE24_SHINING_STAR
+            sampleWorkAdapter.notifyDataSetChanged()
+        }
+        rb_middle_school_student.setOnClickListener {
+            sampleWorkAdapter.selectedFont = EditTextActivity.MIDDLE_SCHOOL_STUDENT
+            sampleWorkAdapter.notifyDataSetChanged()
+        }
+        rb_nanum_barun_pen.setOnClickListener {
+            sampleWorkAdapter.selectedFont = EditTextActivity.NANUM_BARUN_PEN
+            sampleWorkAdapter.notifyDataSetChanged()
+        }
+        rb_nanum_pen.setOnClickListener {
+            sampleWorkAdapter.selectedFont = EditTextActivity.NANUM_PEN
+            sampleWorkAdapter.notifyDataSetChanged()
+        }
+        rb_bm_euljiro.setOnClickListener {
+            sampleWorkAdapter.selectedFont = EditTextActivity.BM_EUJIRO
             sampleWorkAdapter.notifyDataSetChanged()
         }
 
@@ -214,11 +227,6 @@ class FragmentHome : Fragment() {
 
     }
 }
-
-interface FontClickListener {
-    fun onClickFont(font: String)
-}
-
 
 
 class SampleWork(val sampleWork: SampleWorkModel) :

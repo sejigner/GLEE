@@ -1,7 +1,6 @@
 package com.sejigner.glee.adapter
 
 import android.content.Context
-import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,17 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sejigner.glee.EditTextActivity
 import com.sejigner.glee.R
-import com.sejigner.glee.fragment.FontClickListener
+import com.sejigner.glee.customFont.CustomFontHelper
 import com.sejigner.glee.model.SampleWorkModel
-import kotlinx.android.synthetic.main.item_work.view.*
 
-class SampleWorkAdapter(private val context : Context) : RecyclerView.Adapter<SampleWorkAdapter.ViewHolder>() {
+class SampleWorkAdapter(private val context: Context) :
+    RecyclerView.Adapter<SampleWorkAdapter.ViewHolder>() {
     var listOfWorks = mutableListOf<SampleWorkModel>()
+    var selectedFont = EditTextActivity.HAMBAK_SNOW
 
     interface ItemClickListener {
         fun onClick(view: View, position: Int)
     }
-
 
 
     private lateinit var itemClickListener: ItemClickListener
@@ -31,7 +30,7 @@ class SampleWorkAdapter(private val context : Context) : RecyclerView.Adapter<Sa
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_work,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_work, parent, false)
         return ViewHolder(view)
     }
 
@@ -44,9 +43,11 @@ class SampleWorkAdapter(private val context : Context) : RecyclerView.Adapter<Sa
             itemClickListener.onClick(it, position)
         }
 
+        viewHolder.replaceFont(selectedFont)
+
     }
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), FontClickListener {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 //        tv_work_title.text = sampleWork.title
 //        tv_work_author.text = sampleWork.author
@@ -61,23 +62,19 @@ class SampleWorkAdapter(private val context : Context) : RecyclerView.Adapter<Sa
         private val participation = itemView.findViewById<TextView>(R.id.tv_work_participation)
         private val content = itemView.findViewById<TextView>(R.id.tv_work_content)
 
-        override fun onClickFont(font: String) {
-            when(font) {
-                EditTextActivity.CAFE24_SURROUND_AIR ->
-                { content.typeface = Typeface.createFromAsset(itemView.context.assets, "fonts/cafe24_surround_air.ttf")}
-                EditTextActivity.ARITA_BURI ->
-                { content.typeface = Typeface.createFromAsset(itemView.context.assets, "fonts/arita_buri.otf")}
-            }
-        }
 
         fun bind(item: SampleWorkModel) {
             title.text = item.title
             author.text = item.author
-            characterNumber.text = item.characterNumber.toString()
+            characterNumber.text = item.characterNumber.toString() + " 자"
             participation.text = item.participationNumber.toString()
             content.text = item.content
         }
 
+        fun replaceFont(font: String) {
+            // et_edit.typeface = Typeface.createFromAsset(this.assets, font)
+            CustomFontHelper.setCustomFont(content, font, itemView.context)
+        }
 
 
     }

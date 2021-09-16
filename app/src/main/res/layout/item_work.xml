@@ -84,7 +84,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <TextView
+        <com.sejigner.glee.TextViewPlus
             android:id="@+id/tv_work_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
