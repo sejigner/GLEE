@@ -118,6 +118,7 @@
     <string name="notice_save_dialog">저장한 후에 둘러보기 탭에서 다른 작품도 감상해보세요!</string>
 
     <string name="naver_font_license">
+        Naver\n
         Copyright (c) 2010, NAVER Corporation (https://www.navercorp.com/), with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco, NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver NanumBarunGothic, NanumSquareRound, NanumBarunPen, MaruBuri\n\n
         This Font Software is licensed under the SIL Open Font License, Version 1.1.\n
         This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL\n\n
@@ -154,7 +155,6 @@ permission is granted by the corresponding Copyright Holder. This restriction on
         THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
 
     </string>
-    <string name="amore_font_license">본 글꼴의 저작권은 아모레퍼시픽에 있습니다.</string>
     <string name="bm_font_license">배달의민족 한나체, 한나체 Air, 한나체 Pro, 주아체, 도현체, 연성체, 기랑해랑체, 을지로체, 을지로10년후체 글꼴의 지식재산권은 ㈜우아한형제들이 보유합니다.
 
 배달의민족에서 무료로 배포하는 글꼴은(한나체·주아체·도현체·연성체·기랑해랑체·한나체 Air·한나체 Pro·을지로체·배민 을지로10년후체) 자유롭게 수정·변경하여 영리적·비영리적 목적으로 개인 및 기업 사용자가 모두 사용하실 수 있습니다.
@@ -207,7 +207,7 @@ This license becomes null and void if any of the above conditions are not met.
 
 DISCLAIMER
 THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</string>
-    <string name="hambak_font_license">https://blog.naver.com/snowfrost001/222287054506\nHangul Font Designer Blog 한글 디자이너 눈서리 블로그</string>
-    <string name="mapo_font_license">본 글꼴의 저작권은 마포구에 있습니다.</string>
+    <string name="hambak_font_license">함박눈체\n https://blog.naver.com/snowfrost001/222287054506\nHangul Font Designer Blog 한글 디자이너 눈서리 블로그</string>
+    <string name="mapo_font_license">마포꽃섬체\n본 글꼴의 저작권은 마포구에 있습니다.</string>
     <string name="notice_font_license">글리에 사용된 모든 글꼴의 라이선스는 마이페이지 탭 - 메뉴 -> 폰트 라이선스에서 확인하실 수 있습니다.</string>
 </resources>
