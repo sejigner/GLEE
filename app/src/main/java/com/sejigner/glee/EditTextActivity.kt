@@ -24,7 +24,6 @@ class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
 
     companion object {
         const val CAFE24_SURROUND_AIR = "fonts/cafe24_surround_air.ttf"
-        const val ARITA_BURI = "fonts/arita_buri.otf"
         const val MAPO_FLOWER = "fonts/mapo_flower_island.ttf"
         const val HAMBAK_SNOW = "fonts/hambaksnow.ttf"
         const val CAFE24_SHINING_STAR = "fonts/cafe24_shining_star.ttf"
@@ -94,9 +93,6 @@ class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
     private fun setFontOnClickListener() {
         rb_cafe24SurroundAir_edit.setOnClickListener {
             replaceFont(CAFE24_SURROUND_AIR)
-        }
-        rb_aritaBuri_edit.setOnClickListener {
-            replaceFont(ARITA_BURI)
         }
         rb_mapoFlowerIsland_edit.setOnClickListener {
             replaceFont(MAPO_FLOWER)

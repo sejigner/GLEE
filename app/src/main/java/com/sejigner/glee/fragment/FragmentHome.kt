@@ -89,7 +89,6 @@ class FragmentHome : Fragment() {
 
 
         rbCafe24 = view.findViewById(R.id.rb_cafe24SurroundAir)
-        rbAritaBuri = view.findViewById(R.id.rb_aritaBuri)
         rbMapoFlowerIsland = view.findViewById(R.id.rb_mapoFlowerIsland)
         rbHambakSnow = view.findViewById(R.id.rb_hambaksnow)
         tvNewTranscription = view.findViewById(R.id.tv_new_transcription)
@@ -100,10 +99,6 @@ class FragmentHome : Fragment() {
             sampleWorkAdapter.selectedFont = EditTextActivity.CAFE24_SURROUND_AIR
             sampleWorkAdapter.notifyDataSetChanged()
 
-        }
-        rbAritaBuri.setOnClickListener {
-            sampleWorkAdapter.selectedFont = EditTextActivity.ARITA_BURI
-            sampleWorkAdapter.notifyDataSetChanged()
         }
         rbMapoFlowerIsland.setOnClickListener {
             sampleWorkAdapter.selectedFont = EditTextActivity.MAPO_FLOWER
