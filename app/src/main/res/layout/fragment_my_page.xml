@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
-                android:text="좋은 글을 사랑하고 기억하고 싶은,\n진입니다 :)"
+                android:text="@string/team_introduction"
                 android:textAlignment="center"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_background_paper"

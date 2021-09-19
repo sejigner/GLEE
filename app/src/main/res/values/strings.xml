@@ -116,6 +116,8 @@
     <string name="title_edit_dialog">필사를 시작할까요?</string>
     <string name="title_save_dialog">작품을 저장할까요?</string>
     <string name="notice_save_dialog">저장한 후에 둘러보기 탭에서 다른 작품도 감상해보세요!</string>
+    <string name="oksu">스튜디오 옥수</string>
+    <string name="team_introduction">안녕하세요 스튜디오 옥수입니다! </string>
 
     <string name="naver_font_license">
         Naver\n
