@@ -57,6 +57,8 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_canvas)
         transparentStatusAndNavigation()
+        hideNavigationBar()
+
         mCustomView = findViewById<View>(R.id.customView) as CustomView
         setColorList()
         backgroundColor = resources.getColor(R.color.white)
@@ -260,6 +262,16 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
         })
 
 
+    }
+
+    private fun hideNavigationBar() {
+        val uiOptions = window.decorView.systemUiVisibility
+        var newUiOptions = uiOptions
+        val isImmersiveModeEnabled = uiOptions or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY == uiOptions
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_FULLSCREEN
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        window.decorView.systemUiVisibility = newUiOptions
     }
 
     private fun replaceFont(font: String) {
