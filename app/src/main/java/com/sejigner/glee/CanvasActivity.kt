@@ -111,10 +111,6 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
             replaceFont(EditTextActivity.CAFE24_SURROUND_AIR)
         }
 
-        rb_aritaBuri_canvas.setOnClickListener {
-            replaceFont(EditTextActivity.ARITA_BURI)
-        }
-
         rb_mapoFlowerIsland_canvas.setOnClickListener {
             replaceFont(EditTextActivity.MAPO_FLOWER)
         }

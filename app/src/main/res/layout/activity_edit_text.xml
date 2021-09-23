@@ -97,19 +97,6 @@
                 android:textColor="@drawable/radio_flat_text_selector"
                 android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/rb_aritaBuri_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:background="@drawable/radio_flat_selector"
-                android:button="@color/transparent"
-                android:fontFamily="@font/arita_buri"
-                android:gravity="center"
-                android:paddingHorizontal="10dp"
-                android:text="@string/font_aritaBuri"
-                android:textColor="@drawable/radio_flat_text_selector"
-                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/rb_cafe24_shining_star_edit"

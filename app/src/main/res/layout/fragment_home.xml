@@ -10,6 +10,17 @@
         android:fitsSystemWindows="true"
         tools:context=".fragment.FragmentHome">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notice_font_license"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/sv_fonts"
+            android:textSize="8sp"
+            android:textColor="@color/grayText"/>
+
         <HorizontalScrollView
             android:id="@+id/sv_fonts"
             android:layout_width="match_parent"
@@ -71,21 +82,6 @@
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="5dp"
                     android:text="@string/font_cafe24SurroundAir"
-                    android:textColor="@drawable/radio_flat_text_selector"
-                    android:textSize="18sp" />
-
-                <RadioButton
-                    android:id="@+id/rb_aritaBuri"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="5dp"
-                    android:background="@drawable/radio_flat_selector"
-                    android:button="@color/transparent"
-                    android:fontFamily="@font/arita_buri"
-                    android:gravity="center"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="5dp"
-                    android:text="@string/font_aritaBuri"
                     android:textColor="@drawable/radio_flat_text_selector"
                     android:textSize="18sp" />
 

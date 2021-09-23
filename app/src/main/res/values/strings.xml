@@ -92,8 +92,6 @@
     </string>
 
 
-
-
     <string name="font_hambaksnow">함박눈</string>
     <string name="font_mapoFlowerIsland">마포꽃섬</string>
     <string name="font_cafe24SurroundAir">카페24 써라운드에어</string>
@@ -118,5 +116,100 @@
     <string name="title_edit_dialog">필사를 시작할까요?</string>
     <string name="title_save_dialog">작품을 저장할까요?</string>
     <string name="notice_save_dialog">저장한 후에 둘러보기 탭에서 다른 작품도 감상해보세요!</string>
+    <string name="oksu">스튜디오 옥수</string>
+    <string name="team_introduction">안녕하세요 스튜디오 옥수입니다! </string>
 
+    <string name="naver_font_license">
+        Naver\n
+        Copyright (c) 2010, NAVER Corporation (https://www.navercorp.com/), with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco, NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver NanumBarunGothic, NanumSquareRound, NanumBarunPen, MaruBuri\n\n
+        This Font Software is licensed under the SIL Open Font License, Version 1.1.\n
+        This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL\n\n
+        SIL OPEN FONT LICENSE\n
+        Version 1.1 - 26 February 2007
+
+        "Font Software" refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation.\n
+        "Reserved Font Name" refers to any names specified as such after the copyright statement(s).\n
+        "Original Version" refers to the collection of Font Software components as distributed by the Copyright Holder(s).\n
+        "Modified Version" refers to any derivative made by adding to, deleting, or substituting in part or in whole any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.‘\n\n
+        "Author" refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.
+
+        The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects,
+
+to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework  in which fonts may be shared and improved in partnership with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold
+
+by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works.
+
+The fonts and derivatives, however, cannot be released under any other type of license.
+
+The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:
+        1) Neither the Font Software nor any of its individual components,in Original or Modified Versions, may be sold by itself.
+        2) Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.
+        3) No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written
+
+permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.
+        4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) of the Copyright Holder(s) and the Author(s) or with their explicit written permission.
+        5) The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.
+        This license becomes null and void if any of the above conditions are not met.
+        THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
+
+    </string>
+    <string name="bm_font_license">배달의민족 한나체, 한나체 Air, 한나체 Pro, 주아체, 도현체, 연성체, 기랑해랑체, 을지로체, 을지로10년후체 글꼴의 지식재산권은 ㈜우아한형제들이 보유합니다.
+
+배달의민족에서 무료로 배포하는 글꼴은(한나체·주아체·도현체·연성체·기랑해랑체·한나체 Air·한나체 Pro·을지로체·배민 을지로10년후체) 자유롭게 수정·변경하여 영리적·비영리적 목적으로 개인 및 기업 사용자가 모두 사용하실 수 있습니다.
+
+다만, 글꼴 폰트 파일(otf/ttf)자체를 유상으로 판매하는 것은 금지하고 있으니 유의 부탁드립니다.
+
+- 사용 가능 범위 : 간판, 현수막, 브로슈어, 포스터, 책, 잡지, 명함, 스티커, 패키지, 제품, 웹페이지, 광고 배너, E브로슈어, 영상 자막, 영화, TV광고, 웹툰, 게임 UI, 앱 UI, 뉴스레터, 웹진, 프리젠테이션, E-book, 메신저 스티커, 로고, 마크, 신문 광고, 잡지 광고, 지면 광고, 컵홀더, 부채, 쇼핑백, 컵홀더, 포장지, 핸드폰 케이스, 노트, 가방, 신발, 옷 등 상업적·비상업적 목적의 제작물 등
+- 사용 불가능 범위 : 폰트파일((otf/ttf)의 유료 판매
+
+배민에서 무료로 배포하는 글꼴(한나체·주아체·도현체·연성체·기랑해랑체·한나체 Air·한나체 Pro· 을지로체·배민 을지로10년후체)를 사용한 인쇄물, 광고물(온라인 포함)등의 이미지는 당사의 자료 수집 및 연구 목적으로 활용될 수 있습니다. 이를 원치 않는 사용자는 언제든지 당사 고객센터(1600-0987/ CS@woowahan.com)로 요청 부탁드립니다.
+
+아래 “지식재산권 안내 및 라이선스” 전문을 표시하는 경우 다른 소프트웨어와 번들, 재배포 또는 판매하실 수 있습니다
+
+지식재산권 안내 및 라이선스
+Copyright © 2013, Woowa Brothers Corporation (https://www.woowahan.com), with Reserved Font Name BM HANNA 11yrs old, BM HANNA 11yrs old OTF, BMHANNAAir_otf, BMHANNAAir_ttf, BMHANNAPro_otf, BMHANNAPro_ttf, BM JUA_TTF, BM JUA_OTF, BM DoHyeon, BM DoHyeon OTF, BM YEONSUNG, BM YEONSUNG OTF, BM KIRANGHAERANG, BM KIRANGHAERANG OTF, BMEULJIRO, BMEULJIROTTF, BM EULJITO 10 YEARS LATER, BM EULJITO 10 YEARS LATER TTF.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+
+This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+SIL OPEN FONT LICENSE
+Version 1.1 - 26 February 2007
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting, or substituting — in part or in whole — any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.
+
+"Author" refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.
+
+PERMISSION and CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself.
+2) Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.
+3) No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) of the Copyright Holder(s) and the Author(s) or with their explicit written permission.
+5) The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed under any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.
+TERMINATION
+This license becomes null and void if any of the above conditions are not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.</string>
+    <string name="hambak_font_license">함박눈체\n https://blog.naver.com/snowfrost001/222287054506\nHangul Font Designer Blog 한글 디자이너 눈서리 블로그</string>
+    <string name="mapo_font_license">마포꽃섬체\n본 글꼴의 저작권은 마포구에 있습니다.</string>
+    <string name="notice_font_license">글리에 사용된 모든 글꼴의 라이선스는 마이페이지 탭 - 메뉴 -> 폰트 라이선스에서 확인하실 수 있습니다.</string>
 </resources>

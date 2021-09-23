@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item_license"
-        android:title="라이센스" />
+        android:title="폰트 라이선스" />
     <item
         android:id="@+id/item_open_source"
         android:title="오픈소스" />
