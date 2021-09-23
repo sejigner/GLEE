@@ -31,7 +31,6 @@
         android:ellipsize="end"
         android:fontFamily="@font/noto_sans_cjk"
         android:includeFontPadding="false"
-        android:maxLines="1"
         android:text="@string/notice_save_dialog"
         android:textColor="@color/grayText"
         android:textSize="16sp"

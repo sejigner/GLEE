@@ -3,39 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/activity_edit_text.xml" value="0.20833333333333334" />
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/activity_license.xml" value="0.37135416666666665" />
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/activity_open_source.xml" value="0.3567708333333333" />
-<<<<<<< HEAD
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/edit_dialog_fragment.xml" value="0.22712418300653595" />
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-=======
->>>>>>> refs/remotes/origin/develop
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/fragment_license.xml" value="0.37135416666666665" />
-        <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/fragment_my_page.xml" value="0.33" />
+        <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/fragment_my_page.xml" value="0.22" />
         <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/fragment_open_sourcse.xml" value="0.37135416666666665" />
+        <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/item_work.xml" value="0.5" />
+        <entry key="..\:/Develop/Glee_Exhibition/app/src/main/res/layout/save_dialog_fragment.xml" value="0.5" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/drawable-xxxhdpi/btn_new_transcription.xml" value="0.2359375" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/drawable-xxxhdpi/btn_new_transcription_new.xml" value="0.2359375" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/drawable/btn_round_corner_cancel.xml" value="0.2359375" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/drawable/btn_round_corner_ok.xml" value="0.2359375" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_canvas.xml" value="0.152" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_edit_text.xml" value="0.34310618066561016" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_license.xml" value="0.22831692451945618" />
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_canvas.xml" value="1.095890410958904" />
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_edit_text.xml" value="1.6" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/edit_dialog_fragment.xml" value="0.264" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_home.xml" value="0.1793478260869565" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_license.xml" value="0.264" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_my_page.xml" value="0.2" />
+        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_my_page.xml" value="0.4528593508500773" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_open_sourcse.xml" value="0.25364583333333335" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/fragment_share.xml" value="0.1598731884057971" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/image_fullscreen.xml" value="0.25364583333333335" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/item_photo.xml" value="0.1598731884057971" />
-        <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/list_item_grid_work_my_page.xml" value="0.24048913043478262" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/layout/save_dialog_fragment.xml" value="0.264" />
         <entry key="..\:/develop/Glee_Exhibition/app/src/main/res/menu/my_page_popup_menu.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
