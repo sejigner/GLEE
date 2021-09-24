@@ -147,35 +147,35 @@ class FragmentHome : Fragment() {
             resources.getString(R.string.work_sample_author_1),
             participation_1,
             resources.getString(R.string.work_sample_content_1).length,
-            resources.getString(R.string.work_sample_content_1).substring(0..70) + "..."
+            resources.getString(R.string.work_sample_content_1)
         )
         sample2 = SampleWorkModel(
             resources.getString(R.string.work_sample_title_2),
             resources.getString(R.string.work_sample_author_2),
             participation_1,
             resources.getString(R.string.work_sample_content_2).length,
-            resources.getString(R.string.work_sample_content_2).substring(0..60) + "..."
+            resources.getString(R.string.work_sample_content_2)
         )
         sample3 = SampleWorkModel(
             resources.getString(R.string.work_sample_title_3),
             resources.getString(R.string.work_sample_author_3),
             participation_1,
             resources.getString(R.string.work_sample_content_3).length,
-            resources.getString(R.string.work_sample_content_3).substring(0..70) + "..."
+            resources.getString(R.string.work_sample_content_3)
         )
         sample4 = SampleWorkModel(
             resources.getString(R.string.work_sample_title_4),
             resources.getString(R.string.work_sample_author_4),
             participation_1,
             resources.getString(R.string.work_sample_content_4).length,
-            resources.getString(R.string.work_sample_content_4).substring(0..70) + "..."
+            resources.getString(R.string.work_sample_content_4)
         )
         sample5 = SampleWorkModel(
             resources.getString(R.string.work_sample_title_5),
             resources.getString(R.string.work_sample_author_5),
             participation_1,
             resources.getString(R.string.work_sample_content_5).length,
-            resources.getString(R.string.work_sample_content_5).substring(0..50) + "..."
+            resources.getString(R.string.work_sample_content_5)
         )
 
         sample6 = SampleWorkModel(
@@ -183,7 +183,7 @@ class FragmentHome : Fragment() {
             resources.getString(R.string.work_sample_author_6),
             participation_1,
             resources.getString(R.string.work_sample_content_6).length,
-            resources.getString(R.string.work_sample_content_6).substring(0..50) + "..."
+            resources.getString(R.string.work_sample_content_6)
         )
 
         sampleWorkAdapter = SampleWorkAdapter(requireActivity())
