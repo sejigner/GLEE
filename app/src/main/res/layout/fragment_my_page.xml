@@ -11,9 +11,8 @@
             <ImageView
                 android:id="@+id/iv_background_paper"
                 android:layout_width="0dp"
-                android:layout_height="245dp"
+                android:layout_height="120dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/paper_my_page"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="지민 코멘트"
-                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
                 app:layout_constraintTop_toBottomOf="@id/iv_user_jimin" />
@@ -91,9 +91,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="@string/comment_sejin"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
+                android:layout_marginEnd="12dp"
                 app:layout_constraintStart_toStartOf="@id/iv_user_sejin"
                 app:layout_constraintEnd_toStartOf="@id/divider"
                 app:layout_constraintTop_toBottomOf="@id/iv_user_sejin" />
@@ -102,7 +103,8 @@
                 android:id="@+id/tv_introduction_tumblbug"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
                 android:text="@string/info_tumblbug"
                 app:layout_constraintTop_toBottomOf="@id/iv_background_paper"
                 app:layout_constraintStart_toEndOf="@id/divider"
@@ -110,9 +112,10 @@
                 android:layout_margin="36dp"/>
 
             <ImageView
+                android:src="@drawable/qr"
                 android:id="@+id/iv_qr_tumblbug"
-                android:layout_width="214dp"
-                android:layout_height="214dp"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 app:layout_constraintStart_toEndOf="@id/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_introduction_tumblbug"
