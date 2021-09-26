@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_canvas.*
 import kotlinx.android.synthetic.main.activity_edit_text.*
 import java.lang.Exception
 import java.util.*
+import android.os.Build
+import android.view.View
+
 
 class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
 
@@ -38,6 +41,8 @@ class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
         setContentView(R.layout.activity_edit_text)
 
         val seek = findViewById<SeekBar>(R.id.seek_bar_guide_size)
+
+        hideNavigationBar()
 
         iv_close_edit.setOnClickListener {
             super.onBackPressed()
@@ -90,6 +95,17 @@ class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
         })
 
     }
+
+    private fun hideNavigationBar() {
+        val uiOptions = window.decorView.systemUiVisibility
+        var newUiOptions = uiOptions
+        val isImmersiveModeEnabled = uiOptions or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY == uiOptions
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_FULLSCREEN
+        newUiOptions = newUiOptions xor View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        window.decorView.systemUiVisibility = newUiOptions
+    }
+
     private fun setFontOnClickListener() {
         rb_cafe24SurroundAir_edit.setOnClickListener {
             replaceFont(CAFE24_SURROUND_AIR)

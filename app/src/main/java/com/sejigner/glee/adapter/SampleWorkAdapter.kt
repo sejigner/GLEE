@@ -68,7 +68,7 @@ class SampleWorkAdapter(private val context: Context) :
             author.text = item.author
             characterNumber.text = item.characterNumber.toString() + " 자"
             participation.text = item.participationNumber.toString()
-            content.text = item.content
+            content.text = item.content.substring(0..50) + "..."
         }
 
         fun replaceFont(font: String) {
