@@ -11,10 +11,10 @@
             <ImageView
                 android:id="@+id/iv_background_paper"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="120dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/paper_my_page"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,61 +41,85 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_user_sejin"
-                android:layout_width="78dp"
-                android:layout_height="78dp"
+                android:id="@+id/iv_user_jimin"
+                android:layout_width="116dp"
+                android:layout_height="116dp"
                 android:layout_marginEnd="70dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_user_sejin_name"
+                android:layout_marginStart="68dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_user_jimin_comment"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/iv_user_jimin"
                 app:layout_constraintTop_toBottomOf="@+id/tv_comment_my_page"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/tv_user_sejin_name"
+                android:id="@+id/tv_user_jimin_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="세진"
-                android:textSize="20sp"
+                android:layout_marginTop="28dp"
+                android:text="지민 코멘트"
+                android:textColor="@color/black"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/iv_user_sejin"
-                app:layout_constraintStart_toStartOf="@id/iv_user_sejin"
-                app:layout_constraintTop_toBottomOf="@id/iv_background_paper" />
+                app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
+                app:layout_constraintTop_toBottomOf="@id/iv_user_jimin" />
 
             <View
-                app:layout_constraintStart_toEndOf="@id/tv_user_sejin_name"
-                app:layout_constraintEnd_toStartOf="@id/tv_user_jimin_name"
+                android:id="@+id/divider"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_background_paper"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="1dp"
+                android:layout_width="28dp"
                 android:layout_height="0dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@color/divider" />
 
 
 
             <ImageView
-                android:id="@+id/iv_user_jimin"
-                android:layout_width="78dp"
-                android:layout_height="78dp"
-                android:layout_marginStart="70dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_user_jimin_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_user_sejin"
-                app:layout_constraintTop_toBottomOf="@+id/tv_comment_my_page"
+                android:id="@+id/iv_user_sejin"
+                android:layout_width="116dp"
+                android:layout_height="116dp"
+                android:layout_marginTop="68dp"
+                app:layout_constraintEnd_toEndOf="@id/iv_user_jimin"
+                app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
+                app:layout_constraintTop_toBottomOf="@+id/tv_user_jimin_comment"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/tv_user_jimin_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_user_sejin_comment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="지민"
-                android:textSize="20sp"
+                android:layout_marginTop="28dp"
+                android:text="@string/comment_sejin"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/iv_user_jimin"
-                app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
-                app:layout_constraintTop_toBottomOf="@id/iv_background_paper" />
+                android:textColor="@color/black"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintStart_toStartOf="@id/iv_user_sejin"
+                app:layout_constraintEnd_toStartOf="@id/divider"
+                app:layout_constraintTop_toBottomOf="@id/iv_user_sejin" />
+
+            <TextView
+                android:id="@+id/tv_introduction_tumblbug"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="@string/info_tumblbug"
+                app:layout_constraintTop_toBottomOf="@id/iv_background_paper"
+                app:layout_constraintStart_toEndOf="@id/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="36dp"/>
+
+            <ImageView
+                android:src="@drawable/qr"
+                android:id="@+id/iv_qr_tumblbug"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
+                app:layout_constraintStart_toEndOf="@id/divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_introduction_tumblbug"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

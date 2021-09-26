@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.TransformationUtils.circleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.sejigner.glee.*
 import com.sejigner.glee.adapter.WorkListMyPageStaggeredAdapter
@@ -51,5 +54,9 @@ class FragmentMyPage : Fragment() {
             }
             pop.show()
         }
+        Glide.with(requireActivity()).load(R.drawable.paper_my_page).centerCrop().into(iv_background_paper)
+        Glide.with(requireActivity()).load(R.drawable.profile_jimin).circleCrop().into(iv_user_jimin)
+        Glide.with(requireActivity()).load(R.drawable.profile_sejin).circleCrop().into(iv_user_sejin)
+
     }
 }
