@@ -12,9 +12,7 @@
                 android:id="@+id/iv_background_paper"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
-                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,27 +39,41 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_user_jimin"
+                android:id="@+id/iv_logo_oksu"
                 android:layout_width="116dp"
                 android:layout_height="116dp"
                 android:layout_marginEnd="70dp"
+                android:layout_marginTop="62dp"
                 android:layout_marginStart="68dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_user_jimin_comment"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_comment_my_page"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/iv_user_jimin"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginStart="68dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_user_jimin_comment"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/tv_user_jimin_comment"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:text="지민 코멘트"
+                android:text="@string/comment_jimin"
                 android:textColor="@color/black"
+                android:layout_marginEnd="12dp"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
-                app:layout_constraintTop_toBottomOf="@id/iv_user_jimin" />
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@id/iv_user_jimin"
+                app:layout_constraintEnd_toStartOf="@id/divider"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo_oksu"
+                app:layout_constraintBottom_toTopOf="@id/tv_user_sejin_comment"
+                />
 
             <View
                 android:id="@+id/divider"
@@ -73,53 +85,95 @@
                 android:layout_height="0dp"
                 android:background="@color/divider" />
 
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tv_name_jimin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="김지민"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/iv_logo_oksu"
+                app:layout_constraintBottom_toTopOf="@id/iv_user_jimin"
+                android:layout_marginBottom="12dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="디자이너"
+                android:layout_marginStart="8dp"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/tv_name_jimin"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name_jimin"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최세진"
+                android:textSize="16sp"
+                android:id="@+id/tv_name_sejin"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/iv_user_sejin"
+                app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
+                android:layout_marginBottom="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="개발자"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/tv_name_sejin"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name_sejin"/>
+
 
 
             <ImageView
                 android:id="@+id/iv_user_sejin"
-                android:layout_width="116dp"
-                android:layout_height="116dp"
-                android:layout_marginTop="68dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="@id/iv_user_jimin"
                 app:layout_constraintStart_toStartOf="@id/iv_user_jimin"
-                app:layout_constraintTop_toBottomOf="@+id/tv_user_jimin_comment"
+                app:layout_constraintTop_toTopOf="@+id/tv_user_sejin_comment"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/tv_user_sejin_comment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
                 android:text="@string/comment_sejin"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginEnd="12dp"
-                app:layout_constraintStart_toStartOf="@id/iv_user_sejin"
+                app:layout_constraintStart_toStartOf="@id/tv_user_jimin_comment"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/divider"
-                app:layout_constraintTop_toBottomOf="@id/iv_user_sejin" />
+                app:layout_constraintTop_toBottomOf="@id/tv_user_jimin_comment" />
 
             <TextView
                 android:id="@+id/tv_introduction_tumblbug"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:textColor="@color/black"
                 android:text="@string/info_tumblbug"
-                app:layout_constraintTop_toBottomOf="@id/iv_background_paper"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@id/iv_qr_tumblbug"
                 app:layout_constraintStart_toEndOf="@id/divider"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="36dp"/>
+                android:layout_marginHorizontal="100dp"/>
 
             <ImageView
-                android:src="@drawable/qr"
                 android:id="@+id/iv_qr_tumblbug"
-                android:layout_width="340dp"
-                android:layout_height="340dp"
-                app:layout_constraintStart_toEndOf="@id/divider"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_introduction_tumblbug"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toEndOf="@id/divider"
+                app:layout_constraintTop_toBottomOf="@id/iv_background_paper"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

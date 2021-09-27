@@ -54,9 +54,11 @@ class FragmentMyPage : Fragment() {
             }
             pop.show()
         }
-        Glide.with(requireActivity()).load(R.drawable.paper_my_page).centerCrop().into(iv_background_paper)
+        Glide.with(requireActivity()).load(R.drawable.logo_oksu).fitCenter().into(iv_logo_oksu)
+        Glide.with(requireActivity()).load(R.drawable.cover_my_page).centerCrop().into(iv_background_paper)
         Glide.with(requireActivity()).load(R.drawable.profile_jimin).circleCrop().into(iv_user_jimin)
         Glide.with(requireActivity()).load(R.drawable.profile_sejin).circleCrop().into(iv_user_sejin)
+        Glide.with(requireActivity()).load(R.drawable.qr).into(iv_qr_tumblbug)
 
     }
 }

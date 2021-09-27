@@ -118,16 +118,18 @@
     <string name="notice_save_dialog">저장한 후에 둘러보기 탭에서 다른 작품도 감상해보세요!</string>
     <string name="oksu">스튜디오 옥수</string>
     <string name="team_introduction"></string>
-    <string name="comment_sejin">안녕하세요! 글리 앱 개발과 기획을 담당한 최세진입니다.\n
-        제가 개발한 앱을 공개하는 것은 처음이라 많이 설레기도 하고 긴장되기도 합니다.
-        글리를 디자인하신 지민님과 팀을 결성하고 처음으로 함께 한 프로젝트여서 애정이 큰 만큼 여러분께서도 많이 좋아해주셨으면 좋겠어요😊
-        그럼 다른 전시 작품들도 재밌게 감상하시고 행복한 하루 보내세요! 감사합니다🙏
+    <string name="comment_jimin">안녕하세요 :) 글리 앱 디자인과 기획을 담당한 김지민입니다!\n뒤늦게 이 공모전을 발견하고 3일 동안 밤을 세워가며 열심히 만들었는데, 이렇게 앱 개발까지 완주하고 나니 긴 여운이 남습니다.
+        직접 하나 하나 디자인 했는데, 여러분께서 마음에 들어하실지, 반응이 어떠실지 정말 궁금합니다!
+        저희 앱 사랑해주시고 많이 많이 이용해주세요! 감사합니다☺
+        \n\nEmail : loe@leolap.com
+        \nInstagram : @deczim_
+    </string>
+    <string name="comment_sejin">안녕하세요! 글리 앱 개발과 기획을 담당한 최세진입니다.\n제가 개발한 앱을 공개하는 것은 처음이라 많이 설레기도 하고 긴장되기도 합니다.
+        글리를 디자인하신 지민님과 팀을 결성하고 처음으로 함께 한 프로젝트여서 애정이 큰 만큼 여러분께서도 많이 좋아해주셨으면 좋겠어요😊\n그럼 다른 전시 작품들도 재밌게 감상하시고 행복한 하루 보내세요! 감사합니다🙏
         \n\nEmail : sejigner@gmail.com
         \nInstagram : @se_ntwickler
     </string>
-    <string name="info_tumblbug">저희 전시 공간에 마련되어 있는 굿즈들은 글리 홍보를 위한 후속 프로젝트 굿즈들입니다.
-        현재 클라우드 펀딩 서비스인 텀블벅에서 펀딩을 진행하고 있는데요, 저희 앱이 마음에 드셨다면 한번 놀러와주세요!\n
-        스마트폰에 QR코드를 인식시키면 안내 노션 페이지로 연결됩니다! 😄</string>
+    <string name="info_tumblbug">저희 전시 공간에 마련되어 있는 굿즈들은 글리 홍보를 위한 후속 프로젝트 굿즈들입니다.현재 클라우드 펀딩 서비스인 텀블벅에서 펀딩을 진행하고 있는데요, 저희 앱이 마음에 드셨다면 한번 놀러와주세요!\n스마트폰에 QR코드를 인식시키면 안내 노션 페이지로 연결됩니다! 😄</string>
     <string name="naver_font_license">
         Naver\n
         Copyright (c) 2010, NAVER Corporation (https://www.navercorp.com/), with Reserved Font Name Nanum, Naver Nanum, NanumGothic, Naver NanumGothic, NanumMyeongjo, Naver NanumMyeongjo, NanumBrush, Naver NanumBrush, NanumPen, Naver NanumPen, Naver NanumGothicEco, NanumGothicEco, Naver NanumMyeongjoEco, NanumMyeongjoEco, Naver NanumGothicLight, NanumGothicLight, NanumBarunGothic, Naver NanumBarunGothic, NanumSquareRound, NanumBarunPen, MaruBuri\n\n
