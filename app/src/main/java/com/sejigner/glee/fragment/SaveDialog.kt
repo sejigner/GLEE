@@ -13,7 +13,7 @@ class SaveDialog: DialogFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dialog!!.window?.setBackgroundDrawableResource(R.drawable.round_corner);
+        dialog!!.window?.setBackgroundDrawableResource(R.drawable.round_corner)
         return inflater.inflate(R.layout.save_dialog_fragment, container, false)
     }
 

@@ -170,7 +170,7 @@
         </RadioGroup>
     </HorizontalScrollView>
 
-    <com.sejigner.glee.EditTextPlus
+    <com.sejigner.glee.customFont.EditTextPlus
         style="@style/editText"
         android:id="@+id/et_edit"
         android:layout_width="match_parent"

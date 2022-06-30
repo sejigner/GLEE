@@ -216,7 +216,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.sejigner.glee.TextViewPlus
+            <com.sejigner.glee.customFont.TextViewPlus
                 android:id="@+id/tv_canvas_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

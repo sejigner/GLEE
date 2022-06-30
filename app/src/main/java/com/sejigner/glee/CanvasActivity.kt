@@ -136,18 +136,18 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
 
         view_btn_undo.setOnClickListener {
             btn_undo.performClick()
-            btn_undo.setPressed(true)
+            btn_undo.isPressed = true
             btn_undo.invalidate()
-            btn_undo.setPressed(false)
+            btn_undo.isPressed = false
             btn_undo.invalidate()
         }
         btn_undo.setOnClickListener { mCustomView!!.onClickUndo() }
 
         view_btn_redo.setOnClickListener {
             btn_redo.performClick()
-            btn_redo.setPressed(true)
+            btn_redo.isPressed = true
             btn_redo.invalidate()
-            btn_redo.setPressed(false)
+            btn_redo.isPressed = false
             btn_redo.invalidate()
         }
         btn_redo.setOnClickListener { mCustomView!!.onClickRedo() }
@@ -208,11 +208,11 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
             var progressChanged = 0
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 progressChanged = progress
-                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, progress))
+                tv_progress_seek_bar.text = getString(R.string.draw_thickness, progress)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seekPenThickness.progress))
+                tv_progress_seek_bar.text = getString(R.string.draw_thickness, seekPenThickness.progress)
                 progressChanged = seekPenThickness.progress
 
             }
@@ -223,10 +223,10 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
                 "획 두께가 " + seek.progress + "포인트에요.",
                 Toast.LENGTH_SHORT).show()
                 */
-                tv_progress_seek_bar.setText(getString(R.string.draw_thickness, seekPenThickness.progress))
+                tv_progress_seek_bar.text = getString(R.string.draw_thickness, seekPenThickness.progress)
                 Log.d("Debug", "brush : $progressChanged pt")
                 mCustomView!!.setBrushSize(progressChanged.toFloat())
-                mCustomView!!.setLastBrushSize(progressChanged.toFloat())
+                mCustomView!!.lastBrushSize = progressChanged.toFloat()
 
 
             }
@@ -236,11 +236,11 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
             var progressChanged = 0
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 progressChanged = progress + 20
-                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, progress))
+                tv_progress_seek_bar_guide.text = getString(R.string.draw_thickness, progress)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, seekGuideSize.progress + 20))
+                tv_progress_seek_bar_guide.text = getString(R.string.draw_thickness, seekGuideSize.progress + 20)
                 progressChanged = seekGuideSize.progress + 20
 
             }
@@ -251,7 +251,7 @@ class CanvasActivity : AppCompatActivity(), SaveDialog.SaveDialogCallback {
                 "획 두께가 " + seek.progress + "포인트에요.",
                 Toast.LENGTH_SHORT).show()
                 */
-                tv_progress_seek_bar_guide.setText(getString(R.string.draw_thickness, seekGuideSize.progress + 20))
+                tv_progress_seek_bar_guide.text = getString(R.string.draw_thickness, seekGuideSize.progress + 20)
                 Log.d("Debug", "guide : $progressChanged pt")
                 tv_canvas_content.textSize = progressChanged.toFloat() + 20
             }

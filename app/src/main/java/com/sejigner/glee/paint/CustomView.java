@@ -22,14 +22,14 @@ public class CustomView extends View {
     private Path drawPath;
     private Paint canvasPaint;
     private Paint drawPaint;
-    private int paintColor = 0xFF00ED52;
+    private final int paintColor = 0xFF00ED52;
     private Canvas drawCanvas;
     private Bitmap canvasBitmap;
     private int currentColor;
     private int strokeWidth;
     private float currentBrushSize, lastBrushSize;
-    private ArrayList<Stroke> paths = new ArrayList<>();
-    private ArrayList<Stroke> undonePaths = new ArrayList<>();
+    private final ArrayList<Stroke> paths = new ArrayList<>();
+    private final ArrayList<Stroke> undonePaths = new ArrayList<>();
 
     public CustomView(Context context, AttributeSet attrs) {
         super(context, attrs);

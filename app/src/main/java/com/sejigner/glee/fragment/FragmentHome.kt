@@ -62,7 +62,7 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
-        val childCount = rv_work_preview.getChildCount()
+        val childCount = rv_work_preview.childCount
 
 
         // 부모 뷰 터치 가로채기 방지
@@ -216,36 +216,5 @@ class FragmentHome : Fragment() {
             }
         })
 
-    }
-
-    private fun initRecycler() {
-
-    }
-}
-
-
-class SampleWork(val sampleWork: SampleWorkModel) :
-    Item<GroupieViewHolder>() {
-
-    val title = sampleWork.title
-    val author = sampleWork.author
-    val content = sampleWork.content
-
-
-
-    override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        viewHolder.itemView.apply {
-            tv_work_title.text = sampleWork.title
-            tv_work_author.text = sampleWork.author
-            tv_work_character_number.text = sampleWork.characterNumber.toString() + "자"
-            tv_work_participation.text =
-                sampleWork.participationNumber.toString() + resources.getString(R.string.participation_number)
-            tv_work_content.text = sampleWork.content
-        }
-    }
-
-
-    override fun getLayout(): Int {
-        return R.layout.item_work
     }
 }

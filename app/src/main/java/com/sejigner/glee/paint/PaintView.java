@@ -27,19 +27,19 @@ public class PaintView extends View {
     private static final float TOUCH_TOLERANCE = 4;
     private float mX, mY;
     private Path mPath;
-    private Paint mPaint;
-    private ArrayList<FingerPath> paths = new ArrayList<>();
-    private ArrayList<FingerPath> undonePaths = new ArrayList<>();
+    private final Paint mPaint;
+    private final ArrayList<FingerPath> paths = new ArrayList<>();
+    private final ArrayList<FingerPath> undonePaths = new ArrayList<>();
     private int currentColor;
     private int backgroundColor = DEFAULT_BG_COLOR;
     private int strokeWidth;
     private boolean emboss;
     private boolean blur;
-    private MaskFilter mEmboss;
-    private MaskFilter mBlur;
+    private final MaskFilter mEmboss;
+    private final MaskFilter mBlur;
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
+    private final Paint mBitmapPaint = new Paint(Paint.DITHER_FLAG);
     boolean isEraser =false;
 
     public PaintView(Context context) {

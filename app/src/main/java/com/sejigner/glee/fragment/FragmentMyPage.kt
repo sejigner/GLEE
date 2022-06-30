@@ -7,16 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.TransformationUtils.circleCrop
-import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.sejigner.glee.*
-import com.sejigner.glee.adapter.WorkListMyPageStaggeredAdapter
-import com.sejigner.glee.model.WorkModelMyPage
 import kotlinx.android.synthetic.main.fragment_my_page.*
-import kotlinx.android.synthetic.main.fragment_share.*
 
 class FragmentMyPage : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.sejigner.glee
+package com.sejigner.glee.customFont
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,7 @@ import com.sejigner.glee.customFont.CustomFontHelper
 
 
 class EditTextPlus : androidx.appcompat.widget.AppCompatEditText {
-    constructor(context: Context?) : super(context!!) {}
+    constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         CustomFontHelper.setCustomFont(this, context, attrs)
     }
@@ -21,7 +21,7 @@ class EditTextPlus : androidx.appcompat.widget.AppCompatEditText {
 }
 
 class TextViewPlus : androidx.appcompat.widget.AppCompatTextView {
-    constructor(context: Context?) : super(context!!) {}
+    constructor(context: Context?) : super(context!!)
     constructor(context: Context?, attrs: AttributeSet?) : super(context!!, attrs) {
         CustomFontHelper.setCustomFont(this, context, attrs)
     }
