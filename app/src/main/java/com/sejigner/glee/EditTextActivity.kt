@@ -24,7 +24,7 @@ class EditTextActivity : AppCompatActivity(), EditDialog.EditDialogListener {
     var fontSize: Int? = 30
     var text: String? = ""
     var hasWritten : Boolean = false
-
+// 마포꽃섬, 아리따부리는 저작권 문제로 제외할 예정
     companion object {
         const val CAFE24_SURROUND_AIR = "fonts/cafe24_surround_air.ttf"
         const val MAPO_FLOWER = "fonts/mapo_flower_island.ttf"

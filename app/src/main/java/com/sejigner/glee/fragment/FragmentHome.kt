@@ -32,7 +32,6 @@ class FragmentHome : Fragment() {
 
     private lateinit var sampleWorkAdapter: SampleWorkAdapter
     private lateinit var rbCafe24: TextView
-    private lateinit var rbAritaBuri: TextView
     private lateinit var rbMapoFlowerIsland: TextView
     private lateinit var rbHambakSnow: TextView
     private lateinit var tvNewTranscription: TextView
